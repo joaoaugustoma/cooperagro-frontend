@@ -1,0 +1,54 @@
+@import "../../../styles/variables.scss";
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+
+  img {
+    margin-bottom: 150px;
+  }
+
+  p {
+    margin-bottom: 40px;
+  }
+
+  h4 {
+    color: $sub-text-color;
+    font-weight: normal;
+    font-size: 16px;
+    margin-bottom: 60px;
+  }
+
+  button {
+    margin-bottom: 50px;
+  }
+
+  a {
+    color: $primary-color;
+  }
+
+}
+
+.formatted-text {
+  width: 215px;
+
+  p {
+    font-size: 16px;
+  }
+  white-space: pre-line;
+}
+
+.continue-button {
+  border: $text-color 3px solid;
+  border-radius: 30px;
+  background: transparent;
+  padding: 10px 60px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 600;
+  font-family: 'Outfit', sans-serif;
+}

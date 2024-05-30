@@ -1,0 +1,17 @@
+<main>
+  <section class="form-section">
+    <img src="/assets/svg/logo.svg" alt="Logo da CooperAgro" width="125" height="125"/>
+    <h2>{{ title }}</h2>
+    <ng-content></ng-content>
+    <div class="btn-wrapper">
+      <button
+        class="btn-primary"
+        (click)="submit()"
+        [disabled]="disablePrimaryBtn"
+      >
+        {{ primaryBtnText }}
+      </button>
+      <button class="btn-secondary" (click)="navigate()">{{ secondaryBtnText }}</button>
+    </div>
+  </section>
+</main>
