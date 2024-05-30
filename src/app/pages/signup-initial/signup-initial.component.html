@@ -4,7 +4,7 @@
   secondaryBtnText="Já é cadastrado? Faça login!"
   (submit)="submit()"
   (navigate)="navigate()"
-  [disablePrimaryBtn]="!signupForm.valid"
+  [disablePrimaryBtn]="true"
 >
   <form [formGroup]="signupForm">
     <app-primary-input

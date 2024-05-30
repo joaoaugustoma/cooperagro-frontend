@@ -1,7 +1,7 @@
 <app-default-login-layout
   title="Cadastre-se"
   primaryBtnText="Avançar"
-  secondaryBtnText="Já é cadastrado? Faça login!"
+  secondaryBtnText="Voltar"
   (submit)="submit()"
   (navigate)="navigate()"
   [disablePrimaryBtn]="!signupForm.valid"
@@ -28,20 +28,14 @@
       inputName="senha"
       type="password"
       label="Senha"
-      id="senha"
-      (onClickIcon)="togglePasswordVisibility('senha')"
     >
-      <img src="/assets/svg/password-icon.svg" alt="Icone de senha" class="pass-icon"/>
     </app-primary-input>
     <app-primary-input
       formControlName="senhaConfirm"
       inputName="senhaConfirm"
       type="password"
       label="Confirme sua senha"
-      id="senhaConfirm"
-      (onClickIcon)="togglePasswordVisibility('senhaConfirm')"
     >
-      <img src="/assets/svg/password-icon.svg" alt="Icone de senha" class="pass-icon"/>
     </app-primary-input>
   </form>
 </app-default-login-layout>

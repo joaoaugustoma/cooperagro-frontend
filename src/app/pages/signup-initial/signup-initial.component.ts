@@ -5,6 +5,7 @@ import {PrimaryInputComponent} from '../../components/primary-input/primary-inpu
 import {Router} from '@angular/router';
 import {LoginService} from '../../services/login.service';
 import {ToastrService} from 'ngx-toastr';
+import {SignupService} from "../../services/signup.service";
 
 interface SignupInitialForm {
   telefone: FormControl,
@@ -32,7 +33,7 @@ export class SignupInitialComponent {
 
   constructor(
     private router: Router,
-    private loginService: LoginService,
+    private signupService: SignupService,
     private toastService: ToastrService
   ){
     this.signupForm = new FormGroup({
@@ -44,10 +45,10 @@ export class SignupInitialComponent {
   }
 
   submit(){
-    this.loginService.login(this.signupForm.value.email, this.signupForm.value.senha).subscribe({
-      next: () => this.toastService.success("Login feito com sucesso!"),
-      error: () => this.toastService.error("Erro inesperado! Tente novamente mais tarde")
-    })
+    if (this.signupForm.valid) {
+      this.signupService.setFormData(this.signupForm.value);
+      this.router.navigate(['signup-second']);
+    }
   }
 
   navigate(){
