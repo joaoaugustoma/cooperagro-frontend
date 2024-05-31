@@ -1,0 +1,18 @@
+<div class="navbar-wrapper">
+  <div class="navbar-item" [ngClass]="{'active': isActive('/home')}" (click)="navigateTo('/home')">
+    <img [src]="getIcon('/home')" />
+    <p>Início</p>
+  </div>
+  <div class="navbar-item" [ngClass]="{'active': isActive('/descobrir')}" (click)="navigateTo('/descobrir')">
+    <img [src]="getIcon('/descobrir')" />
+    <p>Descobrir</p>
+  </div>
+  <div class="navbar-item" [ngClass]="{'active': isActive('/sacola')}" (click)="navigateTo('/sacola')">
+    <img [src]="getIcon('/sacola')" />
+    <p>Sacola</p>
+  </div>
+  <div class="navbar-item" [ngClass]="{'active': isActive('/perfil')}" (click)="navigateTo('/perfil')">
+    <img [src]="getIcon('/perfil')" />
+    <p>Perfil</p>
+  </div>
+</div>

@@ -1,0 +1,54 @@
+<div class="home-wrapper">
+  <header>
+    <h1 class="home-title">Bem <span>vindo!</span></h1>
+    <img src="/assets/png/Home%20Img.png" width="300"/>
+    <div class="search-bar">
+      <input type="text" placeholder="Pesquise por produtos ou lojas..."/>
+      <button><img src="/assets/svg/search.svg"/></button>
+    </div>
+  </header>
+
+
+  <div class="ultimos-pedidos-section">
+    <div class="ultimos-pedidos-text">
+      <h4>Últimos Pedidos</h4>
+      <a>Ver todos</a>
+    </div>
+    <div class="ultimos-pedidos-item">
+      <div class="ultimos-pedidos-item-img">
+        <img src="/assets/png/Ultimos%20Pedidos%20Img.png"/>
+      </div>
+      <div class="ultimos-pedidos-item-info">
+        <h5>{{nomeLoja}}</h5>
+        <p>Pedido #{{numeroPedido}}</p>
+        <div class="ultimos-pedidos-status">
+          <img src="/assets/png/status.svg"/>
+          <span>{{statusPedido}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="categorias-section">
+    <h4 class="categorias-text">Categorias</h4>
+    <div class="categorias-row">
+      <div class="categorias-item">
+        <img src="/assets/png/categoria%20frutas.png"/>
+        <p>Alimentos</p>
+      </div>
+      <div class="categorias-item">
+        <img src="/assets/png/categoria%20graos.png"/>
+        <p>Alimentos</p>
+      </div>
+      <div class="categorias-item">
+        <img src="/assets/png/categoria%20raizes.png"/>
+        <p>Alimentos</p>
+      </div>
+      <div class="categorias-item">
+        <img src="/assets/png/categoria%20vegetais.png"/>
+        <p>Alimentos</p>
+      </div>
+    </div>
+  </div>
+</div>
+<app-navbar></app-navbar>

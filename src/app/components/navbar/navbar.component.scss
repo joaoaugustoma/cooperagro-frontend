@@ -1,0 +1,53 @@
+@import "../../../styles/variables.scss";
+
+.navbar-wrapper {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: $white-bg;
+  border-radius: 20px 20px 0 0;
+  color: $sub-text-color;
+  padding: 15px 0;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  p {
+    position: relative;
+    text-align: center;
+    padding-bottom: 15px;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 30px; // Largura fixa para a borda
+      border-bottom: 1px solid $sub-text-color;
+    }
+  }
+
+  img {
+    width: 24px;
+    height: 24px;
+    padding-bottom: 0;
+  }
+
+  &.active {
+    color: $primary-color;
+
+    p::after {
+      border-bottom-color: $primary-color;
+    }
+  }
+}
