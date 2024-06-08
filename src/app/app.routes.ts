@@ -8,6 +8,7 @@ import {DescobrirComponent} from "./pages/descobrir/descobrir.component";
 import {SacolaComponent} from "./pages/sacola/sacola.component";
 import {PerfilComponent} from "./pages/perfil/perfil.component";
 import {HomeAgricultorComponent} from "./pages/home-agricultor/home-agricultor.component";
+import {PerfilAgricultorComponent} from "./pages/perfil-agricultor/perfil-agricultor.component";
 
 export const routes: Routes = [
   {
@@ -44,5 +45,9 @@ export const routes: Routes = [
   {
     path: "perfil",
     component: PerfilComponent,
+  },
+  {
+    path: "perfil-agricultor",
+    component: PerfilAgricultorComponent,
   }
 ];
