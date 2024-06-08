@@ -1,0 +1,140 @@
+<app-default-login-layout
+  title="Cadastre-se"
+  primaryBtnText="Avançar"
+  secondaryBtnText="Já é cadastrado? Faça login!"
+  (submit)="submit()"
+  (navigate)="navigate()"
+>
+  <form [formGroup]="signupForm">
+    <h4>Informações Pessoais</h4>
+    <div class="input-wrapper">
+      <label for="uploadFoto">Foto de Perfil</label>
+      <br>
+      <input type="file" id="uploadFoto" (change)="onFileSelected($event)" />
+    </div>
+    <app-primary-input
+      formControlName="telefone"
+      inputName="telefone"
+      type="text"
+      label="Telefone"
+      placeholder="(XX) XXXXX-XXXX"
+      mask="(00) 00000-0000"
+      [required]="true"
+    >
+    </app-primary-input>
+    <app-primary-input
+      formControlName="email"
+      inputName="email"
+      type="email"
+      label="E-mail"
+      placeholder="email@email.com"
+      [required]="true"
+    >
+    </app-primary-input>
+    <app-primary-input
+      formControlName="senha"
+      inputName="senha"
+      type="password"
+      label="Senha"
+      id="senha"
+      (onClickIcon)="togglePasswordVisibility('senha')"
+      [required]="true"
+    >
+      <img src="/assets/svg/password-icon.svg" alt="Icone de senha" class="pass-icon"/>
+    </app-primary-input>
+    <app-primary-input
+      formControlName="senhaConfirm"
+      inputName="senhaConfirm"
+      type="password"
+      label="Confirme sua senha"
+      id="senhaConfirm"
+      (onClickIcon)="togglePasswordVisibility('senhaConfirm')"
+      [required]="true"
+    >
+      <img src="/assets/svg/password-icon.svg" alt="Icone de senha" class="pass-icon"/>
+    </app-primary-input>
+    <app-primary-input
+      formControlName="cnpj"
+      inputName="cnpj"
+      type="text"
+      label="CNPJ"
+      placeholder="XX.XXX.XXX/XXXX-XX"
+      [required]="true"
+      mask="00.000.000/0000-00"
+    >
+    </app-primary-input>
+    <app-primary-input
+      formControlName="razaoSocial"
+      inputName="razaoSocial"
+      type="text"
+      label="Razão Social"
+      placeholder="Razão Social"
+      [required]="true"
+    >
+    </app-primary-input>
+    <h4>Endereço</h4>
+    <app-primary-input
+      formControlName="cep"
+      inputName="cep"
+      type="text"
+      label="cep"
+      placeholder="XXXXX-XXX"
+      [required]="true"
+      mask="00000-000"
+    >
+    </app-primary-input>
+    <app-primary-input
+      formControlName="logradouro"
+      inputName="logradouro"
+      type="text"
+      label="logradouro"
+      placeholder="Rua..."
+      [required]="true"
+    >
+    </app-primary-input>
+    <app-primary-input
+      formControlName="complemento"
+      inputName="complemento"
+      type="text"
+      label="complemento"
+      placeholder="Complemento"
+    >
+    </app-primary-input>
+    <app-primary-input
+      formControlName="numero"
+      inputName="numero"
+      type="text"
+      label="numero"
+      placeholder="Número"
+      [required]="true"
+    >
+    </app-primary-input>
+    <app-primary-input
+      formControlName="bairro"
+      inputName="bairro"
+      type="text"
+      label="bairro"
+      placeholder="Bairro"
+      [required]="true"
+    >
+    </app-primary-input>
+    <app-primary-input
+      formControlName="estado"
+      inputName="estado"
+      type="text"
+      label="estado"
+      placeholder="Estado"
+      [required]="true"
+    >
+    </app-primary-input>
+    <app-primary-input
+      formControlName="cidade"
+      inputName="cidade"
+      type="text"
+      label="Cidade"
+      placeholder="Cidade"
+      [required]="true"
+    >
+    </app-primary-input>
+  </form>
+</app-default-login-layout>

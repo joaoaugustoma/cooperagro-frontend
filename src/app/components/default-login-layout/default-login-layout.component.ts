@@ -1,4 +1,5 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-default-login-layout',
@@ -11,10 +12,12 @@ export class DefaultLoginLayoutComponent {
   @Input() title: string = "";
   @Input() primaryBtnText: string = "";
   @Input() secondaryBtnText: string = "";
-  @Input() disablePrimaryBtn: boolean = true;
   @Output("submit") onSubmit = new EventEmitter();
 
   @Output("navigate") onNavigate = new EventEmitter();
+
+  constructor( private router: Router) {
+  }
 
   submit(){
     this.onSubmit.emit();
@@ -22,5 +25,9 @@ export class DefaultLoginLayoutComponent {
 
   navigate(){
     this.onNavigate.emit();
+  }
+
+  navigateToHome() {
+    this.router.navigate(['/home'])
   }
 }

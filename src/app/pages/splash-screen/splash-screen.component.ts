@@ -15,8 +15,4 @@ export class SplashScreenComponent {
   navigateToSignup() {
     this.router.navigate(['/signup'])
   }
-
-  navigateToHome() {
-    this.router.navigate(['/home'])
-  }
 }

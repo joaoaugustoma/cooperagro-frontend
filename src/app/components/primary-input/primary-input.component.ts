@@ -1,6 +1,7 @@
 import {Component, Input, forwardRef, EventEmitter, Output} from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR, ReactiveFormsModule } from '@angular/forms';
 import {NgIf} from "@angular/common";
+import {NgxMaskDirective, provideNgxMask} from "ngx-mask";
 
 type InputTypes = 'text' | 'password' | 'email';
 
@@ -9,14 +10,16 @@ type InputTypes = 'text' | 'password' | 'email';
   standalone: true,
   imports: [
     ReactiveFormsModule,
-    NgIf
+    NgIf,
+    NgxMaskDirective
   ],
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
       useExisting: forwardRef(() => PrimaryInputComponent),
       multi: true
-    }
+    },
+      provideNgxMask()
   ],
   templateUrl: './primary-input.component.html',
   styleUrls: ['./primary-input.component.scss']
@@ -26,6 +29,8 @@ export class PrimaryInputComponent implements ControlValueAccessor {
   @Input() placeholder: string = '';
   @Input() label: string = '';
   @Input() inputName: string = '';
+  @Input() mask: string = '';
+  @Input() required: boolean = false;
 
   @Output() onClickIcon: EventEmitter<void> = new EventEmitter<void>();
 

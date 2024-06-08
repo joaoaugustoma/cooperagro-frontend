@@ -1,9 +1,7 @@
-import { Routes } from '@angular/router';
-import { LoginComponent } from './pages/login/login.component';
-import { SignupInitialComponent } from './pages/signup-initial/signup-initial.component';
+import {Routes} from '@angular/router';
+import {LoginComponent} from './pages/login/login.component';
+import {SignupComponent} from './pages/signup-initial/signup.component';
 import {SplashScreenComponent} from "./pages/splash-screen/splash-screen.component";
-import {SignupFinalComponent} from "./pages/signup-final/signup-final.component";
-import {SignupSecondComponent} from "./pages/signup-second/signup-second.component";
 import {HomeComponent} from "./pages/home/home.component";
 import {AuthGuard} from "./services/auth-guard.service";
 import {DescobrirComponent} from "./pages/descobrir/descobrir.component";
@@ -22,15 +20,7 @@ export const routes: Routes = [
   },
   {
     path: "signup",
-    component: SignupInitialComponent
-  },
-  {
-    path: "signup-second",
-    component: SignupSecondComponent
-  },
-  {
-    path: "signup-final",
-    component: SignupFinalComponent
+    component: SignupComponent
   },
   {
     path: "home",

@@ -6,10 +6,12 @@
       [placeholder]="placeholder"
       [value]="value"
       (input)="onInput($event)"
+      [mask]="mask"
+      [required]="required"
     />
 
-    <button class="icon" (click)="clickIcon()">
+    <a class="icon" (click)="clickIcon()">
       <ng-content></ng-content>
-    </button>
+    </a>
   </div>
 </div>

@@ -10,7 +10,12 @@ export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(routes),
     provideAnimations(),
-    provideToastr(),
+    provideToastr(
+      {
+        closeButton: true, positionClass: 'toast-top-center',
+        timeOut: 1000000,preventDuplicates:false
+      }
+    ),
     provideHttpClient(withFetch())
   ]
 };

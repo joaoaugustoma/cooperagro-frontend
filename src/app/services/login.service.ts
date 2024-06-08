@@ -1,7 +1,8 @@
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { LoginResponse } from '../types/login-response.type';
-import { tap } from 'rxjs';
+import {HttpClient} from '@angular/common/http';
+import {Injectable} from '@angular/core';
+import {LoginResponse} from '../types/login-response.type';
+import {Observable, tap} from 'rxjs';
+import {RegisterRequestType} from "../types/register-request.type";
 
 @Injectable({
   providedIn: 'root'
@@ -20,5 +21,15 @@ export class LoginService {
       })
     )
   }
+
+  register(registerData: RegisterRequestType): Observable<any> {
+    return this.httpClient.post<LoginResponse>(this.apiUrl + "/registro", registerData).pipe(
+      tap((value) => {
+        sessionStorage.setItem("auth-token", value.authToken);
+        sessionStorage.setItem("username", value.nomeRazaoSocial);
+      })
+    );
+  }
+
 
 }
