@@ -1,2 +1,50 @@
-<p>perfil works!</p>
+<div class="perfil-wrapper">
+  <header>
+    <img src="assets/png/sem-foto-100.png" class="foto-perfil" alt="Foto de Perfil">
+    <h6>{{ nomeUsuario }}</h6>
+    <div class="perfil-botoes">
+      <a><img src="assets/svg/edit.svg" alt="Editar perfil"></a>
+      <span class="logout" (click)="logout()">Sair</span>
+    </div>
+  </header>
+  <div class="menu">
+    <div class="menu-item">
+      <img src="assets/svg/pedidos.svg" alt="Pedidos">
+      <div class="menu-item-content">
+        <a routerLink="/pedidos">Pedidos</a>
+        <span>Ver todos os pedidos</span>
+      </div>
+    </div>
+    <div class="menu-item">
+      <img src="assets/svg/endereco.svg" alt="Endereços">
+      <div class="menu-item-content">
+        <a routerLink="/enderecos">Endereços</a>
+        <span>Meus endereços de entrega</span>
+      </div>
+    </div>
+    <div class="menu-item">
+      <img src="assets/svg/tornar-agricultor.svg" alt="Tornar-se Agricultor">
+      <div class="menu-item-content">
+        <a routerLink="/enderecos">Tornar-se Agricultor</a>
+        <span>Trocar sua conta para agricultor</span>
+      </div>
+    </div>
+    <div class="menu-item">
+      <div class="sub-menu">
+        <div class="sub-menu-item">
+          <img src="assets/svg/ajuda.svg" alt="Ajuda">
+          <span>Ajuda</span>
+        </div>
+        <div class="sub-menu-item">
+          <img src="assets/svg/configuracoes.svg" alt="Configurações">
+          <span>Configurações</span>
+        </div>
+        <div class="sub-menu-item">
+          <img src="assets/svg/sobre.svg" alt="Sobre">
+          <span>Sobre</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 <app-navbar></app-navbar>
