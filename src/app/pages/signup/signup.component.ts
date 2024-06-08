@@ -100,8 +100,6 @@ export class SignupComponent {
       isAgricultor: false
     };
 
-    console.log(registerData)
-
     this.loginService.register(registerData).subscribe({
       next: () => {
         this.router.navigate(["home"]).then(r => this.toastService.success("Cadastro feito com sucesso!"));

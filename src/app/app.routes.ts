@@ -7,6 +7,7 @@ import {AuthGuard} from "./services/auth-guard.service";
 import {DescobrirComponent} from "./pages/descobrir/descobrir.component";
 import {SacolaComponent} from "./pages/sacola/sacola.component";
 import {PerfilComponent} from "./pages/perfil/perfil.component";
+import {HomeAgricultorComponent} from "./pages/home-agricultor/home-agricultor.component";
 
 export const routes: Routes = [
   {
@@ -25,6 +26,11 @@ export const routes: Routes = [
   {
     path: "home",
     component: HomeComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: "home-agricultor",
+    component: HomeAgricultorComponent,
     canActivate: [AuthGuard]
   },
   {

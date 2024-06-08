@@ -42,7 +42,10 @@ export class LoginComponent {
   submit(){
     this.loginService.login(this.loginForm.value.email, this.loginForm.value.password).subscribe({
       next: () => {
-        this.router.navigate(["home"]).then(r => this.toastService.success("Login feito com sucesso!") )
+        if(sessionStorage.getItem("is-agricultor") === "true")
+          this.router.navigate(["home-agricultor"]).then(r => this.toastService.success("Login feito com sucesso!") )
+        else
+          this.router.navigate(["home"]).then(r => this.toastService.success("Login feito com sucesso!") )
       },
       error: () => this.toastService.error("Erro inesperado! Tente novamente mais tarde")
     })

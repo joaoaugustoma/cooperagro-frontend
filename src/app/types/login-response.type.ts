@@ -1,4 +1,5 @@
 export type LoginResponse = {
   authToken: string,
-  nomeRazaoSocial: string
+  nomeRazaoSocial: string,
+  isAgricultor: boolean
 }

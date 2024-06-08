@@ -18,6 +18,7 @@ export class LoginService {
       tap((value) => {
         sessionStorage.setItem("auth-token", value.authToken)
         sessionStorage.setItem("nome", value.nomeRazaoSocial)
+        sessionStorage.setItem("is-agricultor", value.isAgricultor ? "true" : "false")
       })
     )
   }
@@ -26,10 +27,16 @@ export class LoginService {
     return this.httpClient.post<LoginResponse>(this.apiUrl + "/registro", registerData).pipe(
       tap((value) => {
         sessionStorage.setItem("auth-token", value.authToken);
-        sessionStorage.setItem("username", value.nomeRazaoSocial);
+        sessionStorage.setItem("nome", value.nomeRazaoSocial);
+        sessionStorage.setItem("is-agricultor", value.isAgricultor ? "true" : "false")
       })
     );
   }
 
 
+  logout() {
+    sessionStorage.removeItem("auth-token");
+    sessionStorage.removeItem("nome");
+    sessionStorage.removeItem("is-agricultor");
+  }
 }
