@@ -1,4 +1,48 @@
 <div class="home-wrapper">
+  <div class="header-content">
+    <img src="assets/png/sem-foto-100.png" class="foto-loja">
+    <span class="nome-loja">{{ nomeLoja }}</span>
+    <div class="header-info">
+      <div class="header-dados">
+        <img src="assets/svg/produtos-vendidos.svg">
+        <div class="header-buttons">
+          <span class="header-button-title">{{ qtdProdutosVendidos }}</span>
+          <span>Produtos vendidos</span>
+        </div>
+      </div>
+      <div class="header-dados">
+        <img src="assets/svg/ganhos.svg">
+        <div class="header-buttons">
+          <span class="header-button-title">{{ ganhos }}</span>
+          <span>Ganhos</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="ultimos-pedidos-section">
+    <div class="ultimos-pedidos-header">
+      <h6>Últimos pedidos</h6>
+      <a routerLink="/pedidos" class="ver-todos">Ver todos</a>
+    </div>
+    <div class="ultimos-pedidos-content">
+      <div class="pedidos">
 
+        <div class="pedido">
+          <img src="assets/png/sem-foto-100.png">
+          <div class="pedido-info">
+            <div class="pedido-info-sub">
+              <span class="nome-cliente">João Augusto</span>
+              <span class="numero-pedido">#000000</span>
+            </div>
+            <div class="pedido-info-sub">
+              <span class="data-pedido">10/10/2020</span>
+              <span class="valor-pedido">R$ 100,00</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
 </div>
 <app-navbar-agricultor></app-navbar-agricultor>

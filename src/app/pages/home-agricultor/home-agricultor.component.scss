@@ -1,0 +1,96 @@
+@import "../../../styles/variables.scss";
+
+.home-wrapper {
+  padding: 20px;
+  background-color: $gray-bg;
+  height: 100%;
+}
+
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 20px;
+  background-color: $blue-bg;
+  padding: 20px;
+  border-radius: 20px;
+
+  .nome-loja {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 20px;
+  }
+
+  .header-info {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    background-color: $white-bg;
+    padding: 20px;
+    border-radius: 20px;
+
+    .header-dados {
+      display: flex;
+
+      .header-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        .header-button-title {
+          font-size: 16px;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}
+
+.ultimos-pedidos-section {
+  margin-top: 40px;
+
+  .ultimos-pedidos-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+
+    h6 {
+      font-size: 22px;
+    }
+
+    a {
+      color: $primary-color;
+      text-decoration: none;
+    }
+  }
+
+  .ultimos-pedidos-content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    .pedido {
+      display: flex;
+      background-color: $blue-bg;
+      border-radius: 20px;
+      padding: 20px;
+      margin-top: 20px;
+
+      .pedido-info {
+        display: flex;
+        align-items: center;
+        padding-left: 20px;
+        gap: 40px;
+
+        .pedido-info-sub {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+        }
+      }
+    }
+  }
+}
