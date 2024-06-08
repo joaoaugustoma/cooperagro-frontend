@@ -1,1 +1,57 @@
-<p>sacola works!</p>
+<div class="sacola-wrapper">
+  <header>
+    <img src="assets/svg/voltar.svg" (click)="navigateToHome()">
+    <h4>Sacola</h4>
+  </header>
+  <div class="loja">
+    <img src="assets/png/sem-foto-100.png"/>
+    <div class="loja-info">
+      <span>{{ nomeLoja }}</span>
+      <a>Adicionar mais itens</a>
+    </div>
+  </div>
+  <div class="lista-compra">
+    <h5>Lista de Compra</h5>
+    <div class="itens-compra">
+      <div class="item">
+        <img class="foto-produto" src="assets/png/sem-foto-100.png"/>
+        <div class="item-info">
+          <span>Nome do Produto</span>
+          <span>R$ 0,00</span>
+        </div>
+        <div class="item-quantidade">
+          <div class="quantidade">
+            <img src="assets/svg/menos.svg"/>
+            <span>1</span>
+            <img src="assets/svg/mais.svg"/>
+          </div>
+        </div>
+      </div>
+
+      <div class="item">
+        <img class="foto-produto" src="assets/png/sem-foto-100.png"/>
+        <div class="item-info">
+          <span>Nome do Produto</span>
+          <span>R$ 0,00</span>
+        </div>
+        <div class="item-quantidade">
+          <div class="quantidade">
+            <img src="assets/svg/menos.svg"/>
+            <span>1</span>
+            <img src="assets/svg/mais.svg"/>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <div class="preco-total">
+        <span class="preco-total-title">Preço Total</span>
+        <span class="preco-total-text">R$ 0,00</span>
+      </div>
+      <div class="pagamento-button">
+        <button>Faça o Pagamento</button>
+      </div>
+    </footer>
+  </div>
+</div>
