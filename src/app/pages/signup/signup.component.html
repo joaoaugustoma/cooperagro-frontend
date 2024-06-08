@@ -77,26 +77,29 @@
       formControlName="cep"
       inputName="cep"
       type="text"
-      label="cep"
+      label="CEP"
       placeholder="XXXXX-XXX"
       [required]="true"
       mask="00000-000"
+      (blur)="consultaCep()"
+      (keydown.tab)="consultaCep()"
     >
     </app-primary-input>
     <app-primary-input
       formControlName="logradouro"
       inputName="logradouro"
       type="text"
-      label="logradouro"
+      label="Logradouro"
       placeholder="Rua..."
       [required]="true"
+      [disabled]="true"
     >
     </app-primary-input>
     <app-primary-input
       formControlName="complemento"
       inputName="complemento"
       type="text"
-      label="complemento"
+      label="Complemento"
       placeholder="Complemento"
     >
     </app-primary-input>
@@ -104,7 +107,7 @@
       formControlName="numero"
       inputName="numero"
       type="text"
-      label="numero"
+      label="Número"
       placeholder="Número"
       [required]="true"
     >
@@ -113,28 +116,33 @@
       formControlName="bairro"
       inputName="bairro"
       type="text"
-      label="bairro"
+      label="Bairro"
       placeholder="Bairro"
       [required]="true"
+      [disabled]="true"
     >
     </app-primary-input>
-    <app-primary-input
-      formControlName="estado"
-      inputName="estado"
-      type="text"
-      label="estado"
-      placeholder="Estado"
-      [required]="true"
-    >
-    </app-primary-input>
-    <app-primary-input
-      formControlName="cidade"
-      inputName="cidade"
-      type="text"
-      label="Cidade"
-      placeholder="Cidade"
-      [required]="true"
-    >
-    </app-primary-input>
+    <div class="estado-cidade-section">
+      <app-primary-input
+        formControlName="estado"
+        inputName="estado"
+        type="text"
+        label="Estado"
+        placeholder="Estado"
+        [required]="true"
+        [disabled]="true"
+      >
+      </app-primary-input>
+      <app-primary-input
+        formControlName="cidade"
+        inputName="cidade"
+        type="text"
+        label="Cidade"
+        placeholder="Cidade"
+        [required]="true"
+        [disabled]="true"
+      >
+      </app-primary-input>
+    </div>
   </form>
 </app-default-login-layout>

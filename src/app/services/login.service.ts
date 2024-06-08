@@ -23,7 +23,6 @@ export class LoginService {
   }
 
   register(registerData: RegisterRequestType): Observable<any> {
-    console.log(registerData)
     return this.httpClient.post<LoginResponse>(this.apiUrl + "/registro", registerData).pipe(
       tap((value) => {
         sessionStorage.setItem("auth-token", value.authToken);

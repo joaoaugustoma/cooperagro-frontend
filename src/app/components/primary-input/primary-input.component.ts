@@ -31,6 +31,7 @@ export class PrimaryInputComponent implements ControlValueAccessor {
   @Input() inputName: string = '';
   @Input() mask: string = '';
   @Input() required: boolean = false;
+  @Input() disabled: boolean = false;
 
   @Output() onClickIcon: EventEmitter<void> = new EventEmitter<void>();
 

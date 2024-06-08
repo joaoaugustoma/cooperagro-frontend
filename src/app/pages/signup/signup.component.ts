@@ -6,6 +6,7 @@ import {Router} from '@angular/router';
 import {LoginService} from '../../services/login.service';
 import {ToastrService} from 'ngx-toastr';
 import {RegisterRequestType} from "../../types/register-request.type";
+import {EnderecoService} from "../../services/endereco.service";
 
 interface SignupForm {
   uploadFoto: FormControl,
@@ -45,7 +46,8 @@ export class SignupComponent {
   constructor(
     private router: Router,
     private loginService: LoginService,
-    private toastService: ToastrService
+    private toastService: ToastrService,
+    private enderecoService: EnderecoService
   ){
     this.signupForm = new FormGroup({
       telefone: new FormControl('', [Validators.required, Validators.minLength(3)]),
@@ -98,6 +100,8 @@ export class SignupComponent {
       isAgricultor: false
     };
 
+    console.log(registerData)
+
     this.loginService.register(registerData).subscribe({
       next: () => {
         this.router.navigate(["home"]).then(r => this.toastService.success("Cadastro feito com sucesso!"));
@@ -141,6 +145,30 @@ export class SignupComponent {
       };
 
       reader.readAsArrayBuffer(file);
+    }
+  }
+
+  consultaCep(): void {
+    const cep = this.signupForm.value.cep.replace(/\D/g, '');
+    if (cep && cep.length === 8) {
+      this.enderecoService.consultaCep(cep).subscribe(
+        (endereco) => {
+          if (endereco) {
+            this.signupForm.patchValue({
+              logradouro: endereco.logradouro,
+              complemento: endereco.complemento,
+              bairro: endereco.bairro,
+              estado: endereco.uf,
+              cidade: endereco.localidade
+            });
+          }
+        },
+        (error) => {
+          this.toastService.error('Erro ao consultar CEP.');
+        }
+      );
+    } else {
+      this.toastService.error('CEP inválido.');
     }
   }
 }

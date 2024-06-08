@@ -1,6 +1,6 @@
 import {Routes} from '@angular/router';
 import {LoginComponent} from './pages/login/login.component';
-import {SignupComponent} from './pages/signup-initial/signup.component';
+import {SignupComponent} from './pages/signup/signup.component';
 import {SplashScreenComponent} from "./pages/splash-screen/splash-screen.component";
 import {HomeComponent} from "./pages/home/home.component";
 import {AuthGuard} from "./services/auth-guard.service";
