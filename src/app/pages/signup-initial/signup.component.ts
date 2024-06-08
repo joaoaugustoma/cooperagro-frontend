@@ -9,6 +9,7 @@ import {RegisterRequestType} from "../../types/register-request.type";
 
 interface SignupForm {
   uploadFoto: FormControl,
+  typeFoto: FormControl,
   telefone: FormControl,
   email: FormControl,
   senha: FormControl,
@@ -40,7 +41,6 @@ interface SignupForm {
 })
 export class SignupComponent {
   signupForm!: FormGroup<SignupForm>;
-  typeFoto: string = '';
 
   constructor(
     private router: Router,
@@ -61,7 +61,8 @@ export class SignupComponent {
       bairro: new FormControl('', [Validators.required]),
       estado: new FormControl('', [Validators.required]),
       cidade: new FormControl('', [Validators.required]),
-      uploadFoto: new FormControl('')
+      uploadFoto: new FormControl(''),
+      typeFoto: new FormControl('')
     })
   }
 
@@ -93,7 +94,7 @@ export class SignupComponent {
         cidade: this.signupForm.value.cidade,
       },
       uploadFoto: this.signupForm.value.uploadFoto,
-      typeFoto: this.signupForm.value.uploadFoto?.type || '',
+      typeFoto: this.signupForm.value.typeFoto,
       isAgricultor: false
     };
 
@@ -123,7 +124,8 @@ export class SignupComponent {
       if (!validImageTypes.includes(file.type)) {
         this.toastService.error('Por favor, selecione um arquivo de imagem válido (PNG ou JPEG).');
         this.signupForm.patchValue({
-          uploadFoto: null
+          uploadFoto: null,
+          typeFoto: null
         });
         return;
       }
@@ -131,12 +133,14 @@ export class SignupComponent {
       const reader = new FileReader();
       reader.onload = () => {
         const byteArray = new Uint8Array(reader.result as ArrayBuffer);
+        const base64String = btoa(String.fromCharCode(...byteArray));
         this.signupForm.patchValue({
-          uploadFoto: byteArray,
+          uploadFoto: base64String,
+          typeFoto: file.type
         });
       };
-      this.typeFoto: file.type;
 
+      reader.readAsArrayBuffer(file);
     }
   }
 }
