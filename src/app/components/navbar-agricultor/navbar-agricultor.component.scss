@@ -1,0 +1,68 @@
+@import "../../../styles/variables.scss";
+
+.navbar-wrapper {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: $white-bg;
+  border-radius: 20px 20px 0 0;
+  color: $sub-text-color;
+  padding: 15px 0;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  p {
+    position: relative;
+    text-align: center;
+    padding-bottom: 15px;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 30px;
+      border-bottom: 1px solid $sub-text-color;
+    }
+  }
+
+  img {
+    width: 24px;
+    height: 24px;
+    padding-bottom: 0;
+  }
+}
+
+.add-produto{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: $text-color;
+  width: 130px;
+  height: 130px;
+  border-radius: 65px;
+
+  p#p-add-produto {
+    position: relative;
+    text-align: center;
+    color: $white-bg;
+  }
+
+  img {
+    width: 36px;
+    height: 36px;
+    padding-bottom: 0;
+  }
+}
