@@ -1,29 +1,29 @@
-import {Component} from '@angular/core';
-import {DefaultLoginLayoutComponent} from '../../components/default-login-layout/default-login-layout.component';
-import {FormControl, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
-import {PrimaryInputComponent} from '../../components/primary-input/primary-input.component';
-import {Router} from '@angular/router';
-import {LoginService} from '../../services/login.service';
-import {ToastrService} from 'ngx-toastr';
-import {RegisterRequestType} from "../../types/register-request.type";
-import {EnderecoService} from "../../services/endereco.service";
+import { Component } from '@angular/core';
+import { DefaultLoginLayoutComponent } from '../../components/default-login-layout/default-login-layout.component';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { PrimaryInputComponent } from '../../components/primary-input/primary-input.component';
+import { Router } from '@angular/router';
+import { LoginService } from '../../services/login.service';
+import { ToastrService } from 'ngx-toastr';
+import { RegisterRequestType } from "../../types/register-request.type";
+import { EnderecoService } from "../../services/endereco.service";
 
 interface SignupForm {
-  uploadFoto: FormControl,
-  typeFoto: FormControl,
-  telefone: FormControl,
-  email: FormControl,
-  senha: FormControl,
-  senhaConfirm: FormControl,
-  cnpj: FormControl,
-  razaoSocial: FormControl,
-  cep: FormControl,
-  logradouro: FormControl,
-  complemento: FormControl,
-  numero: FormControl,
-  bairro: FormControl,
-  estado: FormControl,
-  cidade: FormControl
+  uploadFoto: FormControl;
+  typeFoto: FormControl;
+  telefone: FormControl;
+  email: FormControl;
+  senha: FormControl;
+  senhaConfirm: FormControl;
+  cnpj: FormControl;
+  razaoSocial: FormControl;
+  cep: FormControl;
+  logradouro: FormControl;
+  complemento: FormControl;
+  numero: FormControl;
+  bairro: FormControl;
+  estado: FormControl;
+  cidade: FormControl;
 }
 
 @Component({
@@ -42,13 +42,14 @@ interface SignupForm {
 })
 export class SignupComponent {
   signupForm!: FormGroup<SignupForm>;
+  numeroDisabled = false;
 
   constructor(
     private router: Router,
     private loginService: LoginService,
     private toastService: ToastrService,
     private enderecoService: EnderecoService
-  ){
+  ) {
     this.signupForm = new FormGroup({
       telefone: new FormControl('', [Validators.required, Validators.minLength(3)]),
       email: new FormControl('', [Validators.required, Validators.email]),
@@ -65,7 +66,7 @@ export class SignupComponent {
       cidade: new FormControl('', [Validators.required]),
       uploadFoto: new FormControl(''),
       typeFoto: new FormControl('')
-    })
+    });
   }
 
   submit() {
@@ -110,9 +111,8 @@ export class SignupComponent {
     });
   }
 
-
-  navigate(){
-    this.router.navigate(["login"])
+  navigate() {
+    this.router.navigate(["login"]);
   }
 
   togglePasswordVisibility(input: string) {
@@ -169,6 +169,17 @@ export class SignupComponent {
       );
     } else {
       this.toastService.error('CEP inválido.');
+    }
+  }
+
+  setSemNumero(event: Event): void {
+    const input = event.target as HTMLInputElement;
+    if (input.checked) {
+      this.signupForm.patchValue({ numero: 'S/N' });
+      this.numeroDisabled = true;
+    } else {
+      this.signupForm.patchValue({ numero: '' });
+      this.numeroDisabled = false;
     }
   }
 }

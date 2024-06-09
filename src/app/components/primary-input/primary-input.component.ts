@@ -3,7 +3,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR, ReactiveFormsModule } from '@a
 import {NgIf} from "@angular/common";
 import {NgxMaskDirective, provideNgxMask} from "ngx-mask";
 
-type InputTypes = 'text' | 'password' | 'email';
+type InputTypes = 'text' | 'password' | 'email' | 'number' ;
 
 @Component({
   selector: 'app-primary-input',

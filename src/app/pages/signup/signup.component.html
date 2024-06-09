@@ -103,15 +103,24 @@
       placeholder="Complemento"
     >
     </app-primary-input>
-    <app-primary-input
-      formControlName="numero"
-      inputName="numero"
-      type="text"
-      label="Número"
-      placeholder="Número"
-      [required]="true"
-    >
-    </app-primary-input>
+    <div class="numero-section">
+      <app-primary-input
+        formControlName="numero"
+        inputName="numero"
+        [type]="numeroDisabled ? 'text' : 'number'"
+        label="Número"
+        placeholder="Número"
+        [disabled]="numeroDisabled"
+        [required]="true"
+      >
+      </app-primary-input>
+      <div class="checkbox-wrapper">
+        <input type="checkbox" id="semNumero" class="styled-checkbox" (change)="setSemNumero($event)" />
+        <label for="semNumero" class="checkmark"></label>
+        <label for="semNumero">Sem Número</label>
+      </div>
+    </div>
+
     <app-primary-input
       formControlName="bairro"
       inputName="bairro"
