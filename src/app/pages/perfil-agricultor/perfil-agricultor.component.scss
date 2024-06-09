@@ -1,0 +1,98 @@
+@import "../../../styles/variables.scss";
+
+.perfil-wrapper {
+  padding: 45px 15px 180px;
+}
+
+h6 {
+  font-family: 'Outfit', sans-serif;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  background-color: $blue-bg;
+  padding: 20px;
+  border-radius: 20px;
+
+  .perfil-info {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .foto-perfil {
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+    border-radius: 50px;
+  }
+
+  .perfil-botoes {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+
+    .logout {
+      color: $danger-color;
+      cursor: pointer;
+      font-weight: bold;
+    }
+  }
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+  background-color: $blue-bg;
+  margin-bottom: 20px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  padding-left: 30px;
+  border-radius: 20px;
+
+  a {
+    font-size: 16px;
+    text-decoration: none;
+    font-weight: bold;
+    color: $text-color ;
+  }
+
+  span {
+    font-size: 14px;
+    font-weight: normal;
+  }
+
+  .menu-item-content {
+    display: flex;
+    margin-left: 10px;
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+.sub-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-left: 30px;
+  border-radius: 20px;
+  background-color: $blue-bg;
+
+  .sub-menu-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    margin-bottom: 10px;
+
+    span {
+      font-size: 16px;
+      font-weight: normal;
+    }
+  }
+}

@@ -1,4 +1,64 @@
 <div class="perfil-wrapper">
-
+  <header>
+    <div class="perfil-info">
+      <img src="assets/png/sem-foto-100.png" class="foto-perfil" alt="Foto de Perfil">
+      <h6>{{ nomeLoja }}</h6>
+    </div>
+    <div class="perfil-botoes">
+      <a><img src="assets/svg/edit.svg" alt="Editar perfil"></a>
+      <span class="logout" (click)="logout()">Sair</span>
+    </div>
+  </header>
+  <div class="menu">
+    <div class="menu-item">
+      <img src="assets/svg/mensagem.svg" alt="Mensagens">
+      <div class="menu-item-content">
+        <a routerLink="/pedidos">Mensagens</a>
+        <span>Ver todos os chats abertos</span>
+      </div>
+    </div>
+    <div class="menu-item">
+      <img src="assets/svg/produtos.svg" alt="Produtos">
+      <div class="menu-item-content">
+        <a routerLink="/enderecos">Produtos</a>
+        <span>Ver todos os produtos</span>
+      </div>
+    </div>
+    <div class="menu-item">
+      <img src="assets/svg/pedidos.svg" alt="Pedidos">
+      <div class="menu-item-content">
+        <a routerLink="/pedidos">Pedidos</a>
+        <span>Ver todos os pedidos</span>
+      </div>
+    </div>
+    <div class="menu-item">
+      <img src="assets/svg/pedidos-agricultor.svg" alt="Pedidos">
+      <div class="menu-item-content">
+        <a routerLink="/enderecos">Pedidos</a>
+        <span>Ver todos os pedidos</span>
+      </div>
+    </div>
+    <div class="menu-item">
+      <img src="assets/svg/relatorios.svg" alt="Relatórios">
+      <div class="menu-item-content">
+        <a routerLink="/pedidos">Relatórios</a>
+        <span>Gerar relatórios</span>
+      </div>
+    </div>
+    <div class="menu-item">
+      <img src="assets/svg/cancelar-agricultor.svg" alt="Cancelar Conta Agricultor">
+      <div class="menu-item-content">
+        <a routerLink="/enderecos">Cancelar Conta Agricultor</a>
+        <span>Cancelar conta de Agricultor</span>
+      </div>
+    </div>
+    <div class="menu-item">
+      <img src="assets/svg/pnae.svg" alt="PNAE">
+      <div class="menu-item-content">
+        <a routerLink="/enderecos">PNAE</a>
+        <span>Ver situaçlão na PNAE</span>
+      </div>
+    </div>
+  </div>
 </div>
 <app-navbar-agricultor></app-navbar-agricultor>
