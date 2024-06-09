@@ -9,6 +9,7 @@ import {SacolaComponent} from "./pages/sacola/sacola.component";
 import {PerfilComponent} from "./pages/perfil/perfil.component";
 import {HomeAgricultorComponent} from "./pages/home-agricultor/home-agricultor.component";
 import {PerfilAgricultorComponent} from "./pages/perfil-agricultor/perfil-agricultor.component";
+import {ForbiddenComponent} from "./components/forbidden/forbidden.component";
 
 export const routes: Routes = [
   {
@@ -37,17 +38,25 @@ export const routes: Routes = [
   {
     path: "descobrir",
     component: DescobrirComponent,
+  canActivate: [AuthGuard]
   },
   {
     path: "sacola",
     component: SacolaComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: "perfil",
     component: PerfilComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: "perfil-agricultor",
     component: PerfilAgricultorComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: "forbidden",
+    component: ForbiddenComponent
   }
 ];

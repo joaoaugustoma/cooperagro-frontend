@@ -102,9 +102,11 @@ export class SignupComponent {
 
     this.loginService.register(registerData).subscribe({
       next: () => {
-        this.router.navigate(["home"]).then(r => this.toastService.success("Cadastro feito com sucesso!"));
+        this.router.navigate(["login"]).then(r => this.toastService.success("Cadastro feito com sucesso!"));
       },
-      error: () => this.toastService.error("Erro inesperado! Tente novamente mais tarde")
+      error: (err) => {
+        this.toastService.error("Erro inesperado! Tente novamente mais tarde");
+      }
     });
   }
 
