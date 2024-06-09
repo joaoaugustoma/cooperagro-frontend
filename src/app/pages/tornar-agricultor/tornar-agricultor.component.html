@@ -1,0 +1,24 @@
+<div class="tornar-agricultor-wrapper">
+  <img src="assets/svg/logo.svg" alt="Logo da CooperAgro" width="125" height="125" (click)="navigateToHome()"/>
+  <h2>Tornar-se Agricultor</h2>
+  <form [formGroup]="tornarAgricultorForm" class="tornar-agricultor-form">
+    <app-primary-input
+      formControlName="nomeLoja"
+      inputName="nomeLoja"
+      type="text"
+      label="Nome Loja"
+      placeholder="Nome Loja"
+      [required]="true"
+    >
+    </app-primary-input>
+  </form>
+  <div class="btn-wrapper">
+    <span class="btn-secondary" (click)="navigate()">Cancelar</span>
+    <button
+      class="btn-primary"
+      (click)="submit()"
+    >
+      Tornar-se Agricultor
+    </button>
+  </div>
+</div>

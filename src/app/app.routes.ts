@@ -10,6 +10,7 @@ import {PerfilComponent} from "./pages/perfil/perfil.component";
 import {HomeAgricultorComponent} from "./pages/home-agricultor/home-agricultor.component";
 import {PerfilAgricultorComponent} from "./pages/perfil-agricultor/perfil-agricultor.component";
 import {ForbiddenComponent} from "./components/forbidden/forbidden.component";
+import {TornarAgricultorComponent} from "./pages/tornar-agricultor/tornar-agricultor.component";
 
 export const routes: Routes = [
   {
@@ -58,5 +59,9 @@ export const routes: Routes = [
   {
     path: "forbidden",
     component: ForbiddenComponent
+  },
+  {
+    path: "tornar-agricultor",
+    component: TornarAgricultorComponent
   }
 ];

@@ -39,4 +39,8 @@ export class PerfilComponent {
       }
     });
   }
+
+  tornarAgricultorAction() {
+    this.router.navigate(['/tornar-agricultor']);
+  }
 }

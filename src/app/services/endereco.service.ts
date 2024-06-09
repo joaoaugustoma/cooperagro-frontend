@@ -1,8 +1,5 @@
 import {HttpClient} from '@angular/common/http';
 import {Injectable} from '@angular/core';
-import {LoginResponse} from '../types/login-response.type';
-import {Observable, of, tap} from 'rxjs';
-import {RegisterRequestType} from "../types/register-request.type";
 import {ConsultaCepResponse} from "../types/consulta-cep-response.type";
 
 @Injectable({

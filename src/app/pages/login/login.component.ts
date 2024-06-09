@@ -5,6 +5,7 @@ import {PrimaryInputComponent} from '../../components/primary-input/primary-inpu
 import {Router} from '@angular/router';
 import {LoginService} from '../../services/login.service';
 import {ToastrService} from 'ngx-toastr';
+import {jwtDecode} from "jwt-decode";
 
 interface LoginForm {
   email: FormControl,
@@ -39,16 +40,23 @@ export class LoginComponent {
     })
   }
 
-  submit(){
+  submit() {
     this.loginService.login(this.loginForm.value.email, this.loginForm.value.password).subscribe({
-      next: () => {
-        if(sessionStorage.getItem("is-agricultor") === "true")
-          this.router.navigate(["home-agricultor"]).then(r => this.toastService.success("Login feito com sucesso!") )
-        else
-          this.router.navigate(["home"]).then(r => this.toastService.success("Login feito com sucesso!") )
+      next: (response) => {
+        const authToken = response.authToken;
+        sessionStorage.setItem('auth-token', authToken);
+
+        const tokenPayload = jwtDecode<any>(authToken);
+        const userRole = tokenPayload.role;
+
+        if (userRole === 'ROLE_AGRICULTOR') {
+          this.router.navigate(["home-agricultor"]).then(r => this.toastService.success("Login feito com sucesso!"));
+        } else {
+          this.router.navigate(["home"]).then(r => this.toastService.success("Login feito com sucesso!"));
+        }
       },
       error: () => this.toastService.error("Erro inesperado! Tente novamente mais tarde")
-    })
+    });
   }
 
   navigate(){
