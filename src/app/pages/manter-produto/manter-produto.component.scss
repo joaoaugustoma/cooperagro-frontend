@@ -1,0 +1,97 @@
+@import "../../../styles/variables.scss";
+
+* {
+  font-family: 'Outfit', sans-serif;
+}
+
+.manter-produto-wrapper {
+  padding: 30px;
+  background-color: $gray-bg;
+  text-align: center;
+}
+
+.manter-produto-title {
+  margin-bottom: 30px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 24px;
+  color: $text-color;
+}
+
+.search-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: $white-bg;
+  height: 60px;
+  border-radius: 30px;
+  margin-bottom: 30px;
+  padding: 0 20px;
+
+  input {
+    border: none;
+    background: none;
+    flex-grow: 1;
+    height: 100%;
+    padding: 0;
+    font-size: 16px;
+    color: $text-color;
+  }
+
+  button {
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+}
+
+.manter-produto-list {
+  .manter-produto-item {
+    display: flex;
+    justify-content: normal;
+    align-items: center;
+    background-color: $blue-bg;
+    border-radius: 20px;
+    padding: 20px;
+    margin-bottom: 20px;
+
+    .manter-produto-item-image {
+      margin-right: 20px;
+    }
+
+    .manter-produto-item-info {
+      text-align: left;
+
+      h5 {
+        margin-bottom: 10px;
+      }
+
+      p {
+        margin-top: 0;
+      }
+    }
+
+    .manter-produto-item-side {
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      gap: 5px;
+
+      a {
+        text-decoration: none;
+        color: $primary-color;
+        font-size: 16px;
+        margin-bottom: 10px;
+      }
+
+      .manter-produto-preco {
+        background-color: $white-bg;
+        padding: 5px;
+        font-size: 18px;
+        color: $text-color;
+        font-weight: bold;
+        border-radius: 10px;
+      }
+    }
+  }
+}

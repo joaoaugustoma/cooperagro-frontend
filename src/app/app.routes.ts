@@ -12,6 +12,7 @@ import {PerfilAgricultorComponent} from "./pages/perfil-agricultor/perfil-agricu
 import {ForbiddenComponent} from "./components/forbidden/forbidden.component";
 import {TornarAgricultorComponent} from "./pages/tornar-agricultor/tornar-agricultor.component";
 import {CancelarAgricultorComponent} from "./pages/cancelar-agricultor/cancelar-agricultor.component";
+import {ManterProdutoComponent} from "./pages/manter-produto/manter-produto.component";
 
 export const routes: Routes = [
   {
@@ -68,5 +69,9 @@ export const routes: Routes = [
   {
     path: "cancelar-agricultor",
     component: CancelarAgricultorComponent
+  },
+  {
+    path: "manter-produto",
+    component: ManterProdutoComponent
   }
 ];
