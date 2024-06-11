@@ -40,4 +40,8 @@ export class PerfilAgricultorComponent {
       }
     });
   }
+
+  cancelarAgricultorAction() {
+    this.router.navigate(['/cancelar-agricultor']);
+  }
 }

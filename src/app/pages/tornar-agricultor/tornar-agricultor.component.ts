@@ -28,8 +28,8 @@ export class TornarAgricultorComponent {
     });
   }
 
-  navigateToHome() {
-    this.router.navigate(['/home']);
+  navigateToPerfil() {
+    this.router.navigate(['/perfil']);
   }
 
   submit() {
@@ -38,22 +38,19 @@ export class TornarAgricultorComponent {
         sessionStorage.setItem('auth-token', newToken);
         const tokenPayload = jwtDecode<any>(newToken);
         const userRole = tokenPayload.role;
-
         if (userRole === 'ROLE_AGRICULTOR') {
-          this.router.navigate(['/home-agricultor']).then(
-            () => {
-              this.toastr.success('Seu perfil agora foi atualizado para agricultor!');
-            }
-          );
+          this.router.navigate(['/home-agricultor']).then(() => {
+            this.toastr.success('Seu perfil agora foi atualizado para agricultor!');
+          });
         } else {
-          this.router.navigate(['/home']).then(
-            () => {
-              this.toastr.success('Seu perfil foi atualizado!');
-            }
-          );
+          this.router.navigate(['/home']).then(() => {
+            this.toastr.success('Seu perfil foi atualizado!');
+          });
         }
       },
-      error: () => this.toastr.error('Erro inesperado! Tente novamente mais tarde')
+      error: (err) => {
+        this.toastr.error('Erro inesperado! Tente novamente mais tarde');
+      }
     });
   }
 

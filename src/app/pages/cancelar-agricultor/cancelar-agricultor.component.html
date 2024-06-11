@@ -1,0 +1,24 @@
+<div class="cancelar-wrapper">
+  <img src="assets/svg/logo.svg" alt="Logo da CooperAgro" width="125" height="125" (click)="navigateToPerfil()"/>
+  <h2>Cancelar Conta Agricultor</h2>
+  <div class="cancelar-text">
+    <h3>ATENÇÃO</h3>
+
+    <p>Ao cancelar sua conta, você perderá total acesso a todos os seus dados, incluindo registros de produtos, vendas, e
+      qualquer outra informação armazenada.</p>
+
+    <h4>Esta ação é irreversível.</h4>
+
+    <p>Você deseja realmente prosseguir com o cancelamento da sua conta?</p>
+  </div>
+
+  <div class="btn-wrapper">
+    <button class="btn-secondary" (click)="navigateToPerfil()">Voltar</button>
+    <button
+      class="btn-primary"
+      (click)="submit()"
+    >
+      Confirmar Cancelamento
+    </button>
+  </div>
+</div>
