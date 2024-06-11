@@ -21,7 +21,7 @@ export class AuthGuard implements CanActivate {
         if (expirationDate > new Date()) {
           const userRole = tokenPayload.role;
           const url = state.url;
-          if ((url.includes('home-agricultor') || url.includes('perfil-agricultor')|| url.includes('manter-produto')) && userRole === 'ROLE_AGRICULTOR') {
+          if ((url.includes('home-agricultor') || url.includes('perfil-agricultor') || url.includes('manter-produto') || url.includes('manter-produto/add') ) && userRole === 'ROLE_AGRICULTOR') {
             return true;
           } else if ((url.includes('home') || url.includes('perfil') || url.includes('descobrir') || url.includes('sacola')) && userRole === 'ROLE_USUARIO') {
             return true;

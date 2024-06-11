@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {NavbarAgricultorComponent} from "../../components/navbar-agricultor/navbar-agricultor.component";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-manter-produto',
@@ -12,4 +13,14 @@ import {NavbarAgricultorComponent} from "../../components/navbar-agricultor/navb
 })
 export class ManterProdutoComponent {
 
+  constructor(private router: Router) {
+  }
+
+  addProduto() {
+    this.router.navigate(['/manter-produto/add']);
+  }
+
+  navigateToHome() {
+    this.router.navigate(['/home-agricultor']);
+  }
 }

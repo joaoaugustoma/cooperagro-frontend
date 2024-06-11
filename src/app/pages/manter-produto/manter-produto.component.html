@@ -1,11 +1,12 @@
 <div class="manter-produto-wrapper">
-  <h4 class="manter-produto-title">Produtos</h4>
   <header>
-    <div class="search-bar">
-      <input type="text" placeholder="Pesquise por produtos..."/>
-      <button><img src="/assets/svg/search.svg"/></button>
-    </div>
+    <img src="/assets/svg/voltar.svg" (click)="navigateToHome()"/>
+    <h4>Produtos</h4>
   </header>
+  <div class="search-bar">
+    <input type="text" placeholder="Pesquise por produtos..."/>
+    <button><img src="/assets/svg/search.svg"/></button>
+  </div>
   <div class="manter-produto-list">
     <div class="manter-produto-item">
       <div class="manter-produto-item-image">
@@ -24,6 +25,6 @@
     </div>
 
   </div>
-</div>
 
-<app-navbar-agricultor></app-navbar-agricultor>
+  <button (click)="addProduto()" class="round-button">+</button>
+</div>

@@ -13,6 +13,7 @@ import {ForbiddenComponent} from "./components/forbidden/forbidden.component";
 import {TornarAgricultorComponent} from "./pages/tornar-agricultor/tornar-agricultor.component";
 import {CancelarAgricultorComponent} from "./pages/cancelar-agricultor/cancelar-agricultor.component";
 import {ManterProdutoComponent} from "./pages/manter-produto/manter-produto.component";
+import {AddProdutoComponent} from "./pages/manter-produto/add-produto/add-produto.component";
 
 export const routes: Routes = [
   {
@@ -73,5 +74,9 @@ export const routes: Routes = [
   {
     path: "manter-produto",
     component: ManterProdutoComponent
+  },
+  {
+    path: "manter-produto/add",
+    component: AddProdutoComponent
   }
 ];
