@@ -20,6 +20,6 @@ import {NavbarComponent} from "../../components/navbar/navbar.component";
 export class HomeComponent {
   nomeLoja: string = "Loja do Zé";
   numeroPedido: string = "123456";
-  statusPedido: StatusPedido = StatusPedido.EM_PREPARO;
+  statusPedido: StatusPedido = StatusPedido.SAIU_PARA_ENTREGA;
 
 }

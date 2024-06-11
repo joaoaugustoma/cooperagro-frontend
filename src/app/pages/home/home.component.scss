@@ -68,10 +68,19 @@ h4 {
 .ultimos-pedidos-item {
   display: flex;
   justify-content: stretch;
+  align-items: center;
+  gap: 20px;
   background-color: $white-bg;
   height: 140px;
   padding: 10px;
   border-radius: 20px;
+
+  .ultimos-pedidos-item-info {
+
+    h5 {
+      font-size: 24px;
+    }
+  }
 }
 
 .ultimos-pedidos-item-img {
@@ -89,6 +98,8 @@ h4 {
 .ultimos-pedidos-status {
   display: flex;
   justify-content: space-between;
+  gap: 10px;
+  align-items: center;
 
   img{
     width: 20px;
