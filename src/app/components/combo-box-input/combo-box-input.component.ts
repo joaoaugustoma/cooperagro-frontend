@@ -1,37 +1,37 @@
 import {Component, Input, forwardRef, EventEmitter, Output} from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR, ReactiveFormsModule } from '@angular/forms';
-import {NgIf} from "@angular/common";
-import {NgxMaskDirective, provideNgxMask} from "ngx-mask";
+import {NgForOf, NgIf} from "@angular/common";
 
-type InputTypes = 'text' | 'password' | 'email' | 'number' ;
+interface SelectOption {
+  value: string;
+  label: string;
+}
 
 @Component({
-  selector: 'app-primary-input',
+  selector: 'app-combo-box-input',
   standalone: true,
   imports: [
     ReactiveFormsModule,
     NgIf,
-    NgxMaskDirective
+    NgForOf,
   ],
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => PrimaryInputComponent),
+      useExisting: forwardRef(() => ComboBoxInputComponent),
       multi: true
-    },
-      provideNgxMask()
+    }
   ],
-  templateUrl: './primary-input.component.html',
-  styleUrls: ['./primary-input.component.scss']
+  templateUrl: './combo-box-input.component.html',
+  styleUrls: ['./combo-box-input.component.scss']
 })
-export class PrimaryInputComponent implements ControlValueAccessor {
-  @Input() type: InputTypes = 'text';
+export class ComboBoxInputComponent implements ControlValueAccessor {
   @Input() placeholder: string = '';
   @Input() label: string = '';
   @Input() inputName: string = '';
-  @Input() mask: string = '';
   @Input() required: boolean = false;
   @Input() disabled: boolean = false;
+  @Input() options: SelectOption[] = [];
 
   @Output() onClickIcon: EventEmitter<void> = new EventEmitter<void>();
 
@@ -40,8 +40,8 @@ export class PrimaryInputComponent implements ControlValueAccessor {
   onChange: any = () => {};
   onTouched: any = () => {};
 
-  onInput(event: Event) {
-    const value = (event.target as HTMLInputElement).value;
+  onSelect(event: Event) {
+    const value = (event.target as HTMLSelectElement).value;
     this.value = value;
     this.onChange(value);
   }
@@ -62,8 +62,7 @@ export class PrimaryInputComponent implements ControlValueAccessor {
     this.disabled = isDisabled;
   }
 
-
-  clickIcon(){
+  clickIcon() {
     this.onClickIcon.emit();
   }
 }

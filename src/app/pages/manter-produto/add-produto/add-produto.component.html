@@ -1,1 +1,91 @@
-<p>add-produto works!</p>
+<div class="add-produto-wrapper">
+  <div class="foto-produto">
+    <img class="foto" src="assets/png/placeholder-produto.jpg"/>
+    <img class="edit-foto-produto" src="/assets/svg/edit-foto-produto.svg"/>
+  </div>
+  <form [formGroup]="form">
+    <app-primary-input
+      formControlName="nome"
+      inputName="nome"
+      type="text"
+      label="Nome"
+      placeholder="Produto A">
+    </app-primary-input>
+    <app-primary-input
+      formControlName="preco"
+      inputName="preco"
+      type="number"
+      label="Preço"
+      placeholder="R$ 0,00">
+    </app-primary-input>
+    <div class="form-sub-item single-combo-box">
+      <app-primary-input
+        formControlName="pesoEstimado"
+        inputName="pesoEstimado"
+        type="number"
+        label="Peso Estimado"
+        placeholder="0,00">
+      </app-primary-input>
+      <app-combo-box-input
+        formControlName="unidadePeso"
+        label="Unidade"
+        inputName="unidadePeso"
+        [options]="[
+      { value: 'g', label: 'g' },
+      { value: 'kg', label: 'kg' }]">
+      </app-combo-box-input>
+    </div>
+    <div class="form-sub-item two-combo-boxes">
+      <app-primary-input
+        formControlName="capacidadeProdutiva"
+        inputName="capacidadeProdutiva"
+        type="number"
+        label="Capacidade Produtiva"
+        placeholder="0,00">
+      </app-primary-input>
+      <app-combo-box-input
+        formControlName="unidadeCapacidade"
+        label="Unidade"
+        inputName="unidadeCapacidade"
+        [options]="[
+      { value: 'g', label: 'g' },
+      { value: 'kg', label: 'kg' }]">
+      </app-combo-box-input>
+      <app-combo-box-input
+        formControlName="tempoCapacidade"
+        label="Tempo"
+        inputName="tempoCapacidade"
+        [options]="[
+        { value: 'semana', label: 'semana' },
+        { value: 'quinzena', label: 'quinzena' },
+        { value: 'mes', label: 'mês' }]">
+      </app-combo-box-input>
+    </div>
+    <div class="form-sub-item single-combo-box">
+      <app-primary-input
+        formControlName="prazoEntrega"
+        inputName="prazoEntrega"
+        type="number"
+        label="Prazo Entrega"
+        placeholder="0,00">
+      </app-primary-input>
+      <app-combo-box-input
+        formControlName="tempoEntrega"
+        label="Tempo"
+        inputName="tempoEntrega"
+        [options]="[
+        { value: 'semana', label: 'semana' },
+        { value: 'quinzena', label: 'quinzena' },
+        { value: 'mes', label: 'mês' }]">
+      </app-combo-box-input>
+    </div>
+    <textarea
+      formControlName="descricao"
+      class="descricao"
+      placeholder="Descrição">
+    </textarea>
+  </form>
+  <button (click)="navigateToProduto()" class="round-button-secondary">+</button>
+
+  <button (click)="salvar()" class="round-button"><img src="assets/svg/salvar.svg"></button>
+</div>

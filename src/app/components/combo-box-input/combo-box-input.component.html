@@ -1,0 +1,17 @@
+<div class="input-wrapper">
+  <label [for]="inputName">{{ label }}</label>
+  <div class="input-content">
+    <select
+      [formControlName]="inputName"
+      [required]="required"
+      [disabled]="disabled"
+      (change)="onSelect($event)"
+    >
+      <option *ngFor="let option of options" [value]="option.value">{{ option.label }}</option>
+    </select>
+
+    <a class="icon" (click)="clickIcon()">
+      <ng-content></ng-content>
+    </a>
+  </div>
+</div>
