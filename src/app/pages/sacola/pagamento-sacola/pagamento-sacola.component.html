@@ -1,0 +1,33 @@
+<div class="sacola-wrapper">
+  <header>
+    <img src="assets/svg/voltar.svg" (click)="navigateToSacola()">
+    <h4>Sacola</h4>
+  </header>
+  <div class="loja">
+    <img src="assets/png/sem-foto-100.png"/>
+    <div class="loja-info">
+      <span>{{ nomeLoja }}</span>
+      <a>Adicionar mais itens</a>
+    </div>
+  </div>
+  <div class="tipo-pagamento">
+    <div class="tipo-pagamento-title">
+      <span class="tipo-pagamento-text">Pagamento pelo app</span>
+      <span class="tipo-pagamento-link">Trocar</span>
+    </div>
+    <div class="tipo-pagamento-section">
+      <img src="assets/png/mercado-pago.png">
+    </div>
+  </div>
+  <h5>Resumo dos valores</h5>
+  <div class="preco-total">
+    <span>Total</span>
+    <span>R$ 0,00</span>
+  </div>
+  <footer>
+    <div class="pagamento-button" (click)="navigateToConfirmar()">
+      <button>Finalizar</button>
+    </div>
+  </footer>
+</div>
+

@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {NavbarComponent} from "../../components/navbar/navbar.component";
 import {MatTab, MatTabGroup} from "@angular/material/tabs";
 
@@ -17,11 +17,19 @@ import {MatTab, MatTabGroup} from "@angular/material/tabs";
 export class ConsultaProdutosComponent implements OnInit{
   categoria: string = '';
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(private route: ActivatedRoute, private router: Router) {}
 
   ngOnInit() {
     this.route.queryParams.subscribe(params => {
       this.categoria = params['categoria'];
     });
+  }
+
+  navigateToLoja() {
+    this.router.navigate(['/produtos/loja']);
+  }
+
+  navigateToProduto() {
+    this.router.navigate(['/produtos/detalhes']);
   }
 }

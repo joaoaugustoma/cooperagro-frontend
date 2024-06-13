@@ -1,0 +1,57 @@
+<div class="sacola-wrapper">
+  <header>
+    <img src="assets/svg/voltar.svg" (click)="navigateToSacola()">
+    <h4>Sacola</h4>
+  </header>
+  <div class="endereco">
+    <div class="endereco-title">
+      <h5>Entregar no endereco</h5>
+      <span>Trocar</span>
+    </div>
+    <div class="endereco-info">
+      <img src="assets/svg/endereco-pedido.svg">
+      <div class="endereco-detalhe">
+        <span class="endereco-log">R.A Q 46, 16</span>
+        <span class="endereco-bairro">Bairro</span>
+      </div>
+    </div>
+  </div>
+  <div class="tipos-entrega">
+    <h5>Tipos de entrega</h5>
+    <div class="tipo-entrega">
+      <div class="tipo-entrega-info">
+        <span class="tipo-entrega-nome">Padrão</span>
+        <span class="tipo-entrega-prazo">Dia 01/07</span>
+      </div>
+      <div class="checkbox">
+        <div class="checkbox-wrapper">
+          <input type="checkbox" id="semNumero" class="styled-checkbox" />
+          <label for="semNumero" class="checkmark"></label>
+        </div>
+      </div>
+    </div>
+
+    <div class="tipo-entrega">
+      <div class="tipo-entrega-info">
+        <span class="tipo-entrega-nome">Combinar Entrega</span>
+        <span class="tipo-entrega-prazo">Abrir chat com entregador</span>
+      </div>
+      <div class="checkbox">
+        <div class="checkbox-wrapper">
+          <input type="checkbox" id="semNumero" class="styled-checkbox" />
+          <label for="semNumero" class="checkmark"></label>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="preco-total">
+    <span class="preco-total-title">Total</span>
+    <span class="preco-total-text">R$ 0,00</span>
+  </div>
+  <div class="pagamento-button" (click)="navigateToPagamento()">
+    <button>Continuar</button>
+  </div>
+</footer>

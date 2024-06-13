@@ -1,0 +1,118 @@
+@import "../../../../styles/variables.scss";
+
+* {
+  font-family: 'Outfit', sans-serif;
+}
+
+.foto {
+  width: 100%;
+  height: 300px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.voltar {
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  background-color: $white-bg;
+  padding: 13px 10px;
+  border-radius: 50%;
+}
+
+h3 {
+  font-size: 20px;
+  font-weight: bold;
+  color: $text-color;
+  margin: 0;
+}
+
+.produto-section {
+  padding: 20px;
+
+  .produto-preco {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 20px;
+
+    h4 {
+      font-size: 20px;
+      font-weight: bold;
+      color: $primary-color;
+      margin: 0;
+    }
+
+    span {
+      font-size: 16px;
+      font-weight: bold;
+      color: $sub-text-color;
+      margin: 0;
+    }
+  }
+
+  .produto-info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+    color: $sub-text-color;
+
+    .produto-info-row {
+      display: flex;
+      justify-content: space-between;
+
+      .produto-info-accent {
+        font-weight: bold;
+      }
+    }
+  }
+
+  .produto-descricao {
+    margin-bottom: 20px;
+  }
+
+  .produto-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 30px;
+    border-radius: 20px;
+    background-color: $primary-color;
+    color: $text-color;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    margin-bottom: 20px;
+  }
+
+  .peca-tambem-section {
+
+    h3 {
+      margin-bottom: 10px;
+    }
+
+    .produtos {
+      display: flex;
+      gap: 20px;
+      overflow-x: auto;
+
+      .produto {
+        display: flex;
+        flex-direction: column;
+
+        .produto-image {
+
+          img {
+            width: 100%;
+            object-fit: cover;
+            border-radius: 20px;
+          }
+        }
+      }
+    }
+  }
+}

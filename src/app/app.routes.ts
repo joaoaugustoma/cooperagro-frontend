@@ -18,6 +18,17 @@ import {ConsultaProdutosComponent} from "./pages/consulta-produtos/consulta-prod
 import {PedidosComponent} from "./pages/pedidos/pedidos.component";
 import {EditPerfilComponent} from "./pages/perfil/edit-perfil/edit-perfil.component";
 import {DetalhesPedidoComponent} from "./pages/detalhes-pedido/detalhes-pedido.component";
+import {ConfirmarSacolaComponent} from "./pages/sacola/confirmar-sacola/confirmar-sacola.component";
+import {PagamentoSacolaComponent} from "./pages/sacola/pagamento-sacola/pagamento-sacola.component";
+import {
+  ConfirmarPagamentoSacolaComponent
+} from "./pages/sacola/pagamento-sacola/confirmar-pagamento-sacola/confirmar-pagamento-sacola.component";
+import {PedidosAgricultorComponent} from "./pages/pedidos-agricultor/pedidos-agricultor.component";
+import {
+  DetalhesPedidoAgricultorComponent
+} from "./pages/detalhes-pedido-agricultor/detalhes-pedido-agricultor.component";
+import {VisualizarLojaComponent} from "./pages/consulta-produtos/visualizar-loja/visualizar-loja.component";
+import {VisualizarProdutoComponent} from "./pages/consulta-produtos/visualizar-produto/visualizar-produto.component";
 
 export const routes: Routes = [
   {
@@ -54,6 +65,21 @@ export const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
+    path: "sacola/confirmar",
+    component: ConfirmarSacolaComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: "sacola/pagamento",
+    component: PagamentoSacolaComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: "sacola/pagamento/confirmar",
+    component: ConfirmarPagamentoSacolaComponent,
+    canActivate: [AuthGuard]
+  },
+  {
     path: "perfil",
     component: PerfilComponent,
     canActivate: [AuthGuard]
@@ -69,35 +95,62 @@ export const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
+    path: "pedidos-agricultor",
+    component: PedidosAgricultorComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: "pedidos-agricultor/detalhes",
+    component: DetalhesPedidoAgricultorComponent,
+    canActivate: [AuthGuard]
+  },
+  {
     path: "forbidden",
     component: ForbiddenComponent
   },
   {
     path: "tornar-agricultor",
-    component: TornarAgricultorComponent
+    component: TornarAgricultorComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: "cancelar-agricultor",
-    component: CancelarAgricultorComponent
+    component: CancelarAgricultorComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: "manter-produto",
-    component: ManterProdutoComponent
+    component: ManterProdutoComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: "manter-produto/add",
-    component: AddProdutoComponent
+    component: AddProdutoComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: "produtos",
-    component: ConsultaProdutosComponent
+    component: ConsultaProdutosComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: "produtos/loja",
+    component: VisualizarLojaComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: "produtos/detalhes",
+    component: VisualizarProdutoComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: "meus-pedidos",
-    component: PedidosComponent
+    component: PedidosComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: "meus-pedidos/detalhes",
-    component: DetalhesPedidoComponent
+    component: DetalhesPedidoComponent,
+    canActivate: [AuthGuard]
   }
 ];

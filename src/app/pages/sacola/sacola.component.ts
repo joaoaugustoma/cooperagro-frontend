@@ -17,4 +17,8 @@ export class SacolaComponent {
   navigateToHome() {
     this.router.navigate(['/home'])
   }
+
+  navigateToConfirmar() {
+    this.router.navigate(['/sacola/confirmar'])
+  }
 }

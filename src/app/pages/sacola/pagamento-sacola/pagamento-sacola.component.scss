@@ -1,0 +1,131 @@
+@import "../../../../styles/variables.scss";
+
+* {
+  font-family: 'Outfit', sans-serif;
+}
+
+.sacola-wrapper {
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 45px;
+
+  footer {
+    position: fixed;
+    bottom: 30px;
+
+    .pagamento-button {
+      display: flex;
+      justify-content: center;
+
+      button {
+        width: calc(100vw - 50px);
+        padding: 15px;
+        border-radius: 40px;
+        background-color: $primary-color;
+        color: $text-color;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        font-family: 'Outfit', sans-serif;
+        border: none;
+      }
+    }
+  }
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-bottom: 30px;
+
+  img {
+    position: absolute;
+    left: 0;
+  }
+
+  h4 {
+    font-family: 'Outfit', sans-serif;
+  }
+}
+
+.loja {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  img {
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+  }
+
+  .loja-info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-left: 20px;
+
+    span {
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    a {
+      font-size: 16px;
+      text-decoration: none;
+      font-weight: bold;
+      color: $primary-color;
+    }
+  }
+}
+
+.tipo-pagamento {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
+
+  .tipo-pagamento-title {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+
+    .tipo-pagamento-text {
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .tipo-pagamento-link {
+      font-size: 16px;
+      text-decoration: none;
+      color: $primary-color;
+    }
+  }
+
+  .tipo-pagamento-section {
+    padding: 10px 20px;
+    border-radius: 20px;
+    background-color: $white-bg;
+  }
+}
+
+h5 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.preco-total {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  padding: 20px;
+  background-color: $white-bg;
+  border-radius: 20px;
+
+  span {
+    font-size: 18px;
+    font-weight: bold;
+  }
+}

@@ -1,0 +1,60 @@
+<div class="produtos-wrapper">
+  <header>
+    <img class="voltar" src="assets/svg/voltar.svg" (click)="navigateToProdutos()">
+    <img class="foto" src="assets/png/placeholder-produto.jpg"/>
+  </header>
+  <div class="produto-section">
+    <h3>Produto A</h3>
+    <div class="produto-preco">
+      <h4>R$ 22,95</h4>
+      <span>Por caixa (5kg cada)</span>
+    </div>
+    <div class="produto-info">
+      <div class="produto-info-row">
+        <span>Preço do quilo</span>
+        <span class="produto-info-accent">R$4,59</span>
+      </div>
+      <div class="produto-info-row">
+        <span>Peso estimado por item</span>
+        <span class="produto-info-accent">5kg</span>
+      </div>
+      <div class="produto-info-row">
+        <span>Tempo de Entrega</span>
+        <span class="produto-info-accent">12 horas</span>
+      </div>
+    </div>
+    <div class="produto-descricao">
+      <h5>Descrição</h5>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer porttitor magna nec turpis maximus, ut
+        pellentesque ligula gravida.</p>
+    </div>
+    <button class="produto-button" (click)="navigateToSacola()">Adicionar à sacola</button>
+
+    <div class="peca-tambem-section">
+      <h3>Peça também</h3>
+      <div class="produtos">
+        <div class="produto">
+          <div class="produto-image">
+            <img src="/assets/png/placeholder-produto.png"/>
+          </div>
+          <span class="produto-nome">Produto B</span>
+          <span>R$ 22,95</span>
+        </div>
+        <div class="produto">
+          <div class="produto-image">
+            <img src="/assets/png/placeholder-produto.png"/>
+          </div>
+          <span class="produto-nome">Produto C</span>
+          <span>R$ 22,95</span>
+        </div>
+        <div class="produto">
+          <div class="produto-image">
+            <img src="/assets/png/placeholder-produto.png"/>
+          </div>
+          <span class="produto-nome">Produto D</span>
+          <span>R$ 22,95</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
