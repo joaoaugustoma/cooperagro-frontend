@@ -52,4 +52,8 @@ export class PerfilAgricultorComponent implements OnInit{
   edit() {
     this.router.navigate(['/perfil-agricultor/editar']);
   }
+
+  navigateToPedidos() {
+    this.router.navigate(['/pedidos-agricultor']);
+  }
 }
