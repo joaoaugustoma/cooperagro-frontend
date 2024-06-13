@@ -29,6 +29,9 @@ import {
 } from "./pages/detalhes-pedido-agricultor/detalhes-pedido-agricultor.component";
 import {VisualizarLojaComponent} from "./pages/consulta-produtos/visualizar-loja/visualizar-loja.component";
 import {VisualizarProdutoComponent} from "./pages/consulta-produtos/visualizar-produto/visualizar-produto.component";
+import {
+  EditPerfilAgricultorComponent
+} from "./pages/perfil-agricultor/edit-perfil-agricultor/edit-perfil-agricultor.component";
 
 export const routes: Routes = [
   {
@@ -92,6 +95,11 @@ export const routes: Routes = [
   {
     path: "perfil-agricultor",
     component: PerfilAgricultorComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: "perfil-agricultor/editar",
+    component: EditPerfilAgricultorComponent,
     canActivate: [AuthGuard]
   },
   {

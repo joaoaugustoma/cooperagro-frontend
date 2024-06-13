@@ -31,10 +31,10 @@ interface EditForm {
         PrimaryInputComponent,
         ReactiveFormsModule
     ],
-  templateUrl: './edit-perfil.component.html',
-  styleUrl: './edit-perfil.component.scss'
+  templateUrl: './edit-perfil-agricultor.component.html',
+  styleUrl: './edit-perfil-agricultor.component.scss'
 })
-export class EditPerfilComponent implements OnInit {
+export class EditPerfilAgricultorComponent implements OnInit {
   editForm!: FormGroup<EditForm>;
   numeroDisabled = false;
 

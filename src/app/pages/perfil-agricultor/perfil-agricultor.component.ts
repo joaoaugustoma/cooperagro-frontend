@@ -48,4 +48,8 @@ export class PerfilAgricultorComponent implements OnInit{
   cancelarAgricultorAction() {
     this.router.navigate(['/cancelar-agricultor']);
   }
+
+  edit() {
+    this.router.navigate(['/perfil-agricultor/editar']);
+  }
 }
