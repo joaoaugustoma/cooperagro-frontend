@@ -40,7 +40,7 @@ export class PerfilAgricultorComponent implements OnInit{
         this.loginService.logout();
         this.router.navigate(['/']);
       } else {
-        this.router.navigate(['/perfil']);
+        this.router.navigate(['/perfil-agricultor']);
       }
     });
   }
