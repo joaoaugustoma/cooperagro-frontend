@@ -16,4 +16,8 @@ export class PedidosComponent {
   navigateToPerfil() {
     this.router.navigate(['/perfil'])
   }
+
+  navigateToDetalhes() {
+    this.router.navigate(['/meus-pedidos/detalhes'])
+  }
 }

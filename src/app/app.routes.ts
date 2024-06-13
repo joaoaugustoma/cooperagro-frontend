@@ -17,6 +17,7 @@ import {AddProdutoComponent} from "./pages/manter-produto/add-produto/add-produt
 import {ConsultaProdutosComponent} from "./pages/consulta-produtos/consulta-produtos.component";
 import {PedidosComponent} from "./pages/pedidos/pedidos.component";
 import {EditPerfilComponent} from "./pages/perfil/edit-perfil/edit-perfil.component";
+import {DetalhesPedidoComponent} from "./pages/detalhes-pedido/detalhes-pedido.component";
 
 export const routes: Routes = [
   {
@@ -94,5 +95,9 @@ export const routes: Routes = [
   {
     path: "meus-pedidos",
     component: PedidosComponent
+  },
+  {
+    path: "meus-pedidos/detalhes",
+    component: DetalhesPedidoComponent
   }
 ];
