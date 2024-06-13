@@ -26,10 +26,10 @@ export class ConsultaProdutosComponent implements OnInit{
   }
 
   navigateToLoja() {
-    this.router.navigate(['/produtos/loja']);
+    this.router.navigate(['/produtos/loja'], { queryParams: { categoria: this.categoria } });
   }
 
   navigateToProduto() {
-    this.router.navigate(['/produtos/detalhes']);
+    this.router.navigate(['/produtos/detalhes'], { queryParams: { categoria: this.categoria } });
   }
 }

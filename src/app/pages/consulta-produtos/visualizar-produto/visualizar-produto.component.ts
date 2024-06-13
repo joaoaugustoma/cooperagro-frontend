@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import {Router} from "@angular/router";
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-visualizar-produto',
@@ -8,13 +8,19 @@ import {Router} from "@angular/router";
   templateUrl: './visualizar-produto.component.html',
   styleUrl: './visualizar-produto.component.scss'
 })
-export class VisualizarProdutoComponent {
+export class VisualizarProdutoComponent implements OnInit{
+  categoria: string = ''
 
-  constructor(private router: Router) {
+  constructor(private route: ActivatedRoute, private router: Router) {}
+
+  ngOnInit() {
+    this.route.queryParams.subscribe(params => {
+      this.categoria = params['categoria'];
+    });
   }
 
   navigateToProdutos() {
-    this.router.navigate(['/produtos'])
+    this.router.navigate(['/produtos'], { queryParams: { categoria: this.categoria } });
   }
 
   navigateToSacola() {
