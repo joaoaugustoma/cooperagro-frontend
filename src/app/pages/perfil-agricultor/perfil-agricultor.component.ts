@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {NavbarAgricultorComponent} from "../../components/navbar-agricultor/navbar-agricultor.component";
 import {NavbarComponent} from "../../components/navbar/navbar.component";
 import {Router, RouterLink} from "@angular/router";
@@ -17,12 +17,16 @@ import {LoginService} from "../../services/login.service";
   templateUrl: './perfil-agricultor.component.html',
   styleUrl: './perfil-agricultor.component.scss'
 })
-export class PerfilAgricultorComponent {
+export class PerfilAgricultorComponent implements OnInit{
   nomeLoja: string = 'Loja A';
 
   constructor(public dialog: MatDialog,
               private router: Router,
               private loginService: LoginService) {}
+
+  ngOnInit() {
+    this.nomeLoja = this.loginService.getNomeUsuario() as string;
+  }
 
   logout() {
     const dialogRef = this.dialog.open(LogoutComponent, {

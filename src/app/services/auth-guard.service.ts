@@ -23,7 +23,7 @@ export class AuthGuard implements CanActivate {
           const url = state.url;
           if ((url.includes('home-agricultor') || url.includes('perfil-agricultor') || url.includes('manter-produto') || url.includes('manter-produto/add') ) && userRole === 'ROLE_AGRICULTOR') {
             return true;
-          } else if ((url.includes('home') || url.includes('perfil') || url.includes('descobrir') || url.includes('sacola')) && userRole === 'ROLE_USUARIO') {
+          } else if ((url.includes('home') || url.includes('perfil')  || url.includes('perfil/editar') || url.includes('descobrir') || url.includes('sacola') || url.includes('produtos') || url.includes('meus-pedidos')) && userRole === 'ROLE_USUARIO') {
             return true;
           } else {
             this.router.navigate(['/forbidden']);

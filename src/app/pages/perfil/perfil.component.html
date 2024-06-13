@@ -3,12 +3,12 @@
     <img src="assets/png/sem-foto-100.png" class="foto-perfil" alt="Foto de Perfil">
     <h6>{{ nomeUsuario }}</h6>
     <div class="perfil-botoes">
-      <a><img src="assets/svg/edit.svg" alt="Editar perfil"></a>
+      <a><img src="assets/svg/edit.svg" alt="Editar perfil" (click)="edit()"></a>
       <span class="logout" (click)="logout()">Sair</span>
     </div>
   </header>
   <div class="menu">
-    <div class="menu-item">
+    <div class="menu-item" (click)="navigateToMeusPedidos()">
       <img src="assets/svg/pedidos.svg" alt="Pedidos">
       <div class="menu-item-content">
         <a routerLink="/pedidos">Pedidos</a>

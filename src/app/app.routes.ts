@@ -14,6 +14,9 @@ import {TornarAgricultorComponent} from "./pages/tornar-agricultor/tornar-agricu
 import {CancelarAgricultorComponent} from "./pages/cancelar-agricultor/cancelar-agricultor.component";
 import {ManterProdutoComponent} from "./pages/manter-produto/manter-produto.component";
 import {AddProdutoComponent} from "./pages/manter-produto/add-produto/add-produto.component";
+import {ConsultaProdutosComponent} from "./pages/consulta-produtos/consulta-produtos.component";
+import {PedidosComponent} from "./pages/pedidos/pedidos.component";
+import {EditPerfilComponent} from "./pages/perfil/edit-perfil/edit-perfil.component";
 
 export const routes: Routes = [
   {
@@ -55,6 +58,11 @@ export const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
+    path: "perfil/editar",
+    component: EditPerfilComponent,
+    canActivate: [AuthGuard]
+  },
+  {
     path: "perfil-agricultor",
     component: PerfilAgricultorComponent,
     canActivate: [AuthGuard]
@@ -78,5 +86,13 @@ export const routes: Routes = [
   {
     path: "manter-produto/add",
     component: AddProdutoComponent
+  },
+  {
+    path: "produtos",
+    component: ConsultaProdutosComponent
+  },
+  {
+    path: "meus-pedidos",
+    component: PedidosComponent
   }
 ];

@@ -1,0 +1,111 @@
+@import "../../../../styles/variables.scss";
+
+* {
+  font-family: 'Outfit', sans-serif;
+}
+
+.edit-perfil-wrapper {
+  padding: 40px;
+
+  .edit-perfil-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin-bottom: 30px;
+
+    img {
+      position: absolute;
+      left: 0;
+    }
+
+    h4 {
+      font-family: 'Outfit', sans-serif;
+    }
+  }
+}
+
+.edit-perfil-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin-top: 30px;
+
+  .btn {
+    padding: 15px;
+    border-radius: 40px;
+    color: $text-color;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    font-family: 'Outfit', sans-serif;
+    border: none;
+
+    &.btn-primary {
+      background-color: $primary-color;
+    }
+
+    &.btn-secondary {
+      background-color: $danger-color;
+    }
+  }
+}
+
+
+
+.estado-cidade-section {
+  display: flex;
+  gap: 24px;
+}
+
+.numero-section {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  font-family: 'Outfit', sans-serif;
+}
+
+.checkbox-wrapper {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+}
+
+.checkbox-wrapper input[type="checkbox"] {
+  opacity: 0;
+  cursor: pointer;
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 15px;
+  width: 15px;
+  border: 1px solid $text-color;
+  border-radius: 50%;
+}
+
+.checkbox-wrapper input[type="checkbox"]:checked ~ .checkmark {
+  background-color: $primary-color;
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.checkbox-wrapper input[type="checkbox"]:checked ~ .checkmark:after {
+  display: block;
+}
+
+.checkbox-wrapper .checkmark:after {
+  left: 4px;
+  top: 1px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+}

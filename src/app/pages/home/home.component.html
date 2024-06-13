@@ -12,7 +12,7 @@
   <div class="ultimos-pedidos-section">
     <div class="ultimos-pedidos-text">
       <h4>Últimos Pedidos</h4>
-      <a>Ver todos</a>
+      <a (click)="navigateToPedidos()">Ver todos</a>
     </div>
     <div class="ultimos-pedidos-item">
       <div class="ultimos-pedidos-item-img">
@@ -32,19 +32,19 @@
   <div class="categorias-section">
     <h4 class="categorias-text">Categorias</h4>
     <div class="categorias-row">
-      <div class="categorias-item">
+      <div class="categorias-item" (click)="navigateToProdutos('Frutas')">
         <img src="/assets/png/categoria%20frutas.png"/>
         <p>Frutas</p>
       </div>
-      <div class="categorias-item">
+      <div class="categorias-item" (click)="navigateToProdutos('Grãos')">
         <img src="/assets/png/categoria%20graos.png"/>
         <p>Grãos</p>
       </div>
-      <div class="categorias-item">
+      <div class="categorias-item" (click)="navigateToProdutos('Raízes')">
         <img src="/assets/png/categoria%20raizes.png"/>
         <p>Raízes</p>
       </div>
-      <div class="categorias-item">
+      <div class="categorias-item" (click)="navigateToProdutos('Vegetais')">
         <img src="/assets/png/categoria%20vegetais.png"/>
         <p>Vegetais</p>
       </div>

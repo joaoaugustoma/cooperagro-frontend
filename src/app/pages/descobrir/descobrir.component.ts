@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {NavbarComponent} from "../../components/navbar/navbar.component";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-descobrir',
@@ -12,4 +13,9 @@ import {NavbarComponent} from "../../components/navbar/navbar.component";
 })
 export class DescobrirComponent {
 
+  constructor(private router: Router) {}
+
+  navigateToProdutos(categoria: string) {
+    this.router.navigate(['/produtos'], { queryParams: { categoria: categoria } });
+  }
 }

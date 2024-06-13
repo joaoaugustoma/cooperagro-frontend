@@ -34,5 +34,10 @@ export class LoginService {
   logout() {
     sessionStorage.removeItem("auth-token");
     sessionStorage.removeItem("nome");
+    sessionStorage.removeItem("is-agricultor");
+  }
+
+  getNomeUsuario() {
+    return sessionStorage.getItem("nome");
   }
 }

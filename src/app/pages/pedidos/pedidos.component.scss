@@ -1,0 +1,89 @@
+@import "../../../styles/variables.scss";
+
+* {
+  font-family: 'Outfit', sans-serif;
+}
+
+.pedidos-wrapper {
+  padding: 50px 20px 20px;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-bottom: 30px;
+
+  img {
+    position: absolute;
+    left: 0;
+  }
+
+  h4 {
+    font-family: 'Outfit', sans-serif;
+  }
+}
+
+.historico-pedidos {
+
+  h5 {
+    font-size: 20px;
+  }
+
+  .pedidos {
+
+    .pedido {
+
+      .pedido-header {
+        color: $sub-text-color;
+        margin-bottom: 15px;
+        margin-top: 20px;
+      }
+
+      .pedido-section {
+
+        background-color: $white-bg;
+        padding: 20px;
+        border-radius: 20px;
+
+        .pedido-agricultor {
+          display: flex;
+          gap: 20px;
+          align-items: center;
+          padding-bottom: 15px;
+          border-bottom: 1px solid $sub-text-color;
+
+          span {
+            font-weight: bold;
+          }
+        }
+
+        .pedido-info {
+          margin-top: 15px;
+          padding-bottom: 15px;
+          border-bottom: 1px solid $sub-text-color;
+        }
+
+        .pedido-itens {
+          display: flex;
+          flex-direction: column;
+          color: $sub-text-color;
+        }
+
+        .pedido-avaliacao {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+
+          .stars {
+            font-size: 32px;
+            margin: 0;
+            padding: 0;
+          }
+        }
+
+      }
+    }
+  }
+}
