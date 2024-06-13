@@ -14,7 +14,6 @@
       label="Telefone"
       placeholder="(XX) XXXXX-XXXX"
       mask="(00) 00000-0000"
-      [required]="true"
     >
     </app-primary-input>
     <app-primary-input
@@ -23,7 +22,6 @@
       type="email"
       label="E-mail"
       placeholder="email@email.com"
-      [required]="true"
     >
     </app-primary-input>
     <app-primary-input
@@ -32,7 +30,6 @@
       type="password"
       label="Senha"
       id="senha"
-      [required]="true"
     >
       <img src="/assets/svg/password-icon.svg" alt="Icone de senha" class="pass-icon"/>
     </app-primary-input>
@@ -42,7 +39,6 @@
       type="password"
       label="Confirme sua senha"
       id="senhaConfirm"
-      [required]="true"
     >
       <img src="/assets/svg/password-icon.svg" alt="Icone de senha" class="pass-icon"/>
     </app-primary-input>
@@ -52,7 +48,6 @@
       type="text"
       label="CNPJ"
       placeholder="XX.XXX.XXX/XXXX-XX"
-      [required]="true"
       mask="00.000.000/0000-00"
     >
     </app-primary-input>
@@ -62,7 +57,6 @@
       type="text"
       label="Razão Social"
       placeholder="Razão Social"
-      [required]="true"
     >
     </app-primary-input>
     <h4>Endereço</h4>
@@ -72,7 +66,6 @@
       type="text"
       label="CEP"
       placeholder="XXXXX-XXX"
-      [required]="true"
       mask="00000-000"
       (blur)="consultaCep()"
       (keydown.tab)="consultaCep()"
@@ -84,7 +77,6 @@
       type="text"
       label="Logradouro"
       placeholder="Rua..."
-      [required]="true"
       [disabled]="true"
     >
     </app-primary-input>
@@ -104,7 +96,6 @@
         label="Número"
         placeholder="Número"
         [disabled]="numeroDisabled"
-        [required]="true"
       >
       </app-primary-input>
       <div class="checkbox-wrapper">
@@ -120,7 +111,6 @@
       type="text"
       label="Bairro"
       placeholder="Bairro"
-      [required]="true"
       [disabled]="true"
     >
     </app-primary-input>
@@ -131,7 +121,6 @@
         type="text"
         label="Estado"
         placeholder="Estado"
-        [required]="true"
         [disabled]="true"
       >
       </app-primary-input>
@@ -141,7 +130,6 @@
         type="text"
         label="Cidade"
         placeholder="Cidade"
-        [required]="true"
         [disabled]="true"
       >
       </app-primary-input>

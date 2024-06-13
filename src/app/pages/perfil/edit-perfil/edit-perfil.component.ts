@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {DefaultLoginLayoutComponent} from "../../../components/default-login-layout/default-login-layout.component";
 import {PrimaryInputComponent} from "../../../components/primary-input/primary-input.component";
 import {FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
@@ -34,7 +34,7 @@ interface EditForm {
   templateUrl: './edit-perfil.component.html',
   styleUrl: './edit-perfil.component.scss'
 })
-export class EditPerfilComponent {
+export class EditPerfilComponent implements OnInit {
   editForm!: FormGroup<EditForm>;
   numeroDisabled = false;
 
@@ -45,31 +45,52 @@ export class EditPerfilComponent {
     private enderecoService: EnderecoService
   ) {
     this.editForm = new FormGroup({
-      telefone: new FormControl('', [Validators.required, Validators.minLength(3)]),
-      email: new FormControl('', [Validators.required, Validators.email]),
-      senha: new FormControl('', [Validators.required, Validators.minLength(6)]),
-      senhaConfirm: new FormControl('', [Validators.required, Validators.minLength(6)]),
-      cnpj: new FormControl('', [Validators.required, Validators.minLength(14)]),
-      razaoSocial: new FormControl('', [Validators.required]),
-      cep: new FormControl('', [Validators.required, Validators.minLength(8)]),
-      logradouro: new FormControl('', [Validators.required]),
+      telefone: new FormControl('', [ Validators.minLength(3)]),
+      email: new FormControl('', [ Validators.email]),
+      senha: new FormControl(''),
+      senhaConfirm: new FormControl(''),
+      cnpj: new FormControl('', [ Validators.minLength(14)]),
+      razaoSocial: new FormControl(''),
+      cep: new FormControl('', [ Validators.minLength(8)]),
+      logradouro: new FormControl(''),
       complemento: new FormControl(''),
-      numero: new FormControl('', [Validators.required]),
-      bairro: new FormControl('', [Validators.required]),
-      estado: new FormControl('', [Validators.required]),
-      cidade: new FormControl('', [Validators.required]),
+      numero: new FormControl(''),
+      bairro: new FormControl(''),
+      estado: new FormControl(''),
+      cidade: new FormControl('')
     });
   }
 
+  ngOnInit(): void {
+    const userData = this.loginService.getUserData() as any;
+    this.editForm.patchValue(userData);
+  }
+
   navigateToPerfil() {
-    this.router.navigate(['/perfil']);
+    this.router.navigate(["profile"]);
+  }
+
+  submit() {
+    if (this.editForm.invalid) {
+      this.toastService.error("Por favor, preencha todos os campos obrigatórios.");
+      return;
+    }
+
+    this.loginService.updateUserData(this.editForm.value).subscribe({
+      next: () => {
+        this.toastService.success("Perfil atualizado com sucesso!");
+      },
+      error: () => {
+        this.toastService.error("Erro inesperado! Tente novamente mais tarde.");
+      }
+    });
   }
 
   consultaCep(): void {
     const cep = this.editForm.value.cep.replace(/\D/g, '');
     if (cep && cep.length === 8) {
       this.enderecoService.consultaCep(cep).subscribe(
-        (endereco) => {
+        endereco => {
           if (endereco) {
             this.editForm.patchValue({
               logradouro: endereco.logradouro,
@@ -80,7 +101,7 @@ export class EditPerfilComponent {
             });
           }
         },
-        (error) => {
+        () => {
           this.toastService.error('Erro ao consultar CEP.');
         }
       );
@@ -98,9 +119,5 @@ export class EditPerfilComponent {
       this.editForm.patchValue({ numero: '' });
       this.numeroDisabled = false;
     }
-  }
-
-  submit() {
-
   }
 }
