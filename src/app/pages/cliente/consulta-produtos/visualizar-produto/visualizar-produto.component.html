@@ -3,7 +3,7 @@
 <div class="produtos-wrapper" *ngIf="produto">
   <header>
     <img class="voltar" src="assets/svg/voltar.svg" (click)="navigateToProdutos()">
-    <img class="foto" src="assets/png/placeholder-produto.jpg"/>
+    <img class="foto" [src]="imagemSelecionada || 'assets/png/placeholder-produto.jpg'"/>
   </header>
   <div class="produto-section">
     <h3>{{ produto.titulo }}</h3>

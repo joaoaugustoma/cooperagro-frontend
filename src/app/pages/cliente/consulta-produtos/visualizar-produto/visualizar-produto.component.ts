@@ -17,6 +17,7 @@ export class VisualizarProdutoComponent implements OnInit {
   produto: ProdutoDtoType = {} as ProdutoDtoType;
   categoria: string = ''
   id: number = 0;
+  imagemSelecionada: string | ArrayBuffer | null = null;
 
   constructor(private route: ActivatedRoute, private router: Router,
               private produtoService: ProdutoService) {
@@ -45,11 +46,20 @@ export class VisualizarProdutoComponent implements OnInit {
     this.produtoService.getProdutoById(id).subscribe(
       (produto: ProdutoDtoType) => {
         this.produto = produto;
-        console.log(produto)
+        this.imagemSelecionada = 'data:' + produto.typeFoto + ';base64,' + this.arrayBufferToBase64(produto.byteFoto);
       },
       (error) => {
         console.error('Erro ao carregar detalhes do produto:', error);
       }
     );
+  }
+
+  private arrayBufferToBase64(buffer: number[]): string {
+    const bytes = new Uint8Array(buffer);
+    let binary = '';
+    for (let i = 0; i < bytes.length; i++) {
+      binary += String.fromCharCode(bytes[i]);
+    }
+    return window.btoa(binary);
   }
 }
