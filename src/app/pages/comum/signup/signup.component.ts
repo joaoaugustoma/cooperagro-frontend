@@ -41,7 +41,7 @@ interface SignupForm {
   styleUrls: ['./signup.component.scss']
 })
 export class SignupComponent {
-  signupForm!: FormGroup; // Removido o tipo do FormGroup para simplificar
+  signupForm!: FormGroup;
   numeroDisabled = false;
 
   constructor(
@@ -64,7 +64,7 @@ export class SignupComponent {
       bairro: new FormControl('', [Validators.required]),
       estado: new FormControl('', [Validators.required]),
       cidade: new FormControl('', [Validators.required]),
-      byteFoto: new FormControl(null), // Tipo ArrayBuffer para byteFoto
+      byteFoto: new FormControl(null),
       typeFoto: new FormControl('')
     });
   }
@@ -131,7 +131,7 @@ export class SignupComponent {
 
       const reader = new FileReader();
       reader.onload = () => {
-        const arrayBuffer = reader.result as ArrayBuffer; // Lê como ArrayBuffer diretamente
+        const arrayBuffer = reader.result as ArrayBuffer;
         this.signupForm.patchValue({
           byteFoto: arrayBuffer,
           typeFoto: file.type

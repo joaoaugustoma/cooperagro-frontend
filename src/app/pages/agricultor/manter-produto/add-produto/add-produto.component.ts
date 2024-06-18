@@ -43,7 +43,7 @@ interface ProdutoForm {
   styleUrls: ['./add-produto.component.scss']
 })
 export class AddProdutoComponent implements OnInit {
-  form: FormGroup; // Removido o tipo do FormGroup para simplificar
+  form: FormGroup;
 
   imagemSelecionada: string | ArrayBuffer | null = null;
   idAgricultor: number = 0;
@@ -68,7 +68,7 @@ export class AddProdutoComponent implements OnInit {
         validators: [Validators.required, Validators.maxLength(300)]
       }),
       categoria: new FormControl('', { validators: Validators.required }),
-      byteFoto: new FormControl(null), // Tipo ArrayBuffer para byteFoto
+      byteFoto: new FormControl(null),
       typeFoto: new FormControl('')
     });
   }
@@ -127,7 +127,7 @@ export class AddProdutoComponent implements OnInit {
 
       const reader = new FileReader();
       reader.onload = () => {
-        const arrayBuffer = reader.result as ArrayBuffer; // Lê como ArrayBuffer diretamente
+        const arrayBuffer = reader.result as ArrayBuffer;
         this.imagemSelecionada = `data:${file.type};base64,${btoa(String.fromCharCode(...new Uint8Array(arrayBuffer)))}`;
         this.form.patchValue({
           byteFoto: arrayBuffer,

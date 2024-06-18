@@ -13,7 +13,7 @@ import {CommonModule} from '@angular/common';
     NavbarComponent,
     MatTab,
     MatTabGroup,
-    CommonModule // Import necessary Angular modules
+    CommonModule
   ],
   templateUrl: './consulta-produtos.component.html',
   styleUrls: ['./consulta-produtos.component.scss'] // Fixed typo: styleUrl to styleUrls
@@ -28,7 +28,7 @@ export class ConsultaProdutosComponent implements OnInit {
   ngOnInit() {
     this.route.queryParams.subscribe(params => {
       this.categoria = params['categoria'];
-      this.getProdutos(this.categoria); // Moved inside the subscribe to get products whenever category changes
+      this.getProdutos(this.categoria);
     });
   }
 
