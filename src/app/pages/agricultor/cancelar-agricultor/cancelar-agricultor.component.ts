@@ -30,11 +30,9 @@ export class CancelarAgricultorComponent {
   submit() {
     this.agricultorService.cancelarAgricultor().subscribe({
       next: (newToken) => {
-        console.log(newToken)
         sessionStorage.setItem('auth-token', newToken);
         const tokenPayload = jwtDecode<any>(newToken);
         const userRole = tokenPayload.role;
-        console.log(userRole)
         if (userRole === 'ROLE_USUARIO') {
           this.router.navigate(['/home']).then(
             () => {

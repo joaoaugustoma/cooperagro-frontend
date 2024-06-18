@@ -43,7 +43,6 @@ export class ConsultaProdutosComponent implements OnInit {
   private getProdutos(categoria: string) {
     this.produtoService.getProdutosByCategoria(categoria).subscribe(
       (data) => {
-        console.log(data)
         this.produtos = data;
       },
       (error) => {
