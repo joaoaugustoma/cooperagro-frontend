@@ -23,7 +23,7 @@ interface ProdutoForm {
   tempoEntrega: FormControl<string>;
   descricao: FormControl<string>;
   categoria: FormControl<string>;
-  uploadFoto: FormControl;
+  byteFoto: FormControl;
   typeFoto: FormControl;
 }
 
@@ -43,7 +43,8 @@ interface ProdutoForm {
   styleUrls: ['./add-produto.component.scss']
 })
 export class AddProdutoComponent {
-  form: FormGroup<ProdutoForm>;
+  form: FormGroup; // Removido o tipo do FormGroup para simplificar
+
   imagemSelecionada: string | ArrayBuffer | null = null;
   idAgricultor: number = 0;
 
@@ -54,28 +55,22 @@ export class AddProdutoComponent {
     private agricultorService: AgricultorService
   ) {
     this.form = new FormGroup({
-      nome: new FormControl<string>('', { validators: Validators.required, nonNullable: true }),
-      preco: new FormControl<number>(0, { validators: Validators.required, nonNullable: true }),
-      pesoEstimado: new FormControl<number>(0, { validators: Validators.required, nonNullable: true }),
-      unidadePeso: new FormControl<string>('', { validators: Validators.required, nonNullable: true }),
-      capacidadeProdutiva: new FormControl<number>(0, { validators: Validators.required, nonNullable: true }),
-      unidadeCapacidade: new FormControl<string>('', { validators: Validators.required, nonNullable: true }),
-      tempoCapacidade: new FormControl<string>('', { validators: Validators.required, nonNullable: true }),
-      prazoEntrega: new FormControl<number>(0, { validators: Validators.required, nonNullable: true }),
-      tempoEntrega: new FormControl<string>('', { validators: Validators.required, nonNullable: true }),
-      descricao: new FormControl<string>('', {
-        validators: [Validators.required, Validators.maxLength(300)],
-        nonNullable: true
+      nome: new FormControl('', { validators: Validators.required }),
+      preco: new FormControl(0, { validators: Validators.required }),
+      pesoEstimado: new FormControl(0, { validators: Validators.required }),
+      unidadePeso: new FormControl('', { validators: Validators.required }),
+      capacidadeProdutiva: new FormControl(0, { validators: Validators.required }),
+      unidadeCapacidade: new FormControl('', { validators: Validators.required }),
+      tempoCapacidade: new FormControl('', { validators: Validators.required }),
+      prazoEntrega: new FormControl(0, { validators: Validators.required }),
+      tempoEntrega: new FormControl('', { validators: Validators.required }),
+      descricao: new FormControl('', {
+        validators: [Validators.required, Validators.maxLength(300)]
       }),
-      categoria: new FormControl<string>('', { validators: Validators.required, nonNullable: true }),
-      uploadFoto: new FormControl(''),
+      categoria: new FormControl('', { validators: Validators.required }),
+      byteFoto: new FormControl(null), // Tipo ArrayBuffer para byteFoto
       typeFoto: new FormControl('')
     });
-  }
-
-
-  navigateToProduto() {
-    this.router.navigate(['/manter-produto']);
   }
 
   salvar() {
@@ -83,29 +78,26 @@ export class AddProdutoComponent {
       this.toastService.error('Preencha todos os campos obrigatórios');
       return;
     }
+
     this.getIdAgricultor();
 
-    console.log(this.idAgricultor)
-
     const produto: ProdutoDtoType = {
-      titulo: this.form.value.nome as string,
-      descricao: this.form.value.descricao as string,
-      precoUnitario: this.form.value.preco as number,
-      pesoEstimado: this.form.value.pesoEstimado as number,
-      unidadePeso: this.form.value.unidadePeso as string,
-      capacidadeProdutiva: this.form.value.capacidadeProdutiva as number,
-      unidadeCapacidade: this.form.value.unidadeCapacidade as string,
-      tempoCapacidade: this.form.value.tempoCapacidade as string,
-      prazoEntrega: this.form.value.prazoEntrega as number,
-      unidadePrazo: this.form.value.tempoEntrega as string,
-      categoria: this.form.value.categoria as string ,
+      titulo: this.form.value.nome,
+      descricao: this.form.value.descricao,
+      precoUnitario: this.form.value.preco,
+      pesoEstimado: this.form.value.pesoEstimado,
+      unidadePeso: this.form.value.unidadePeso,
+      capacidadeProdutiva: this.form.value.capacidadeProdutiva,
+      unidadeCapacidade: this.form.value.unidadeCapacidade,
+      tempoCapacidade: this.form.value.tempoCapacidade,
+      prazoEntrega: this.form.value.prazoEntrega,
+      unidadePrazo: this.form.value.tempoEntrega,
+      categoria: this.form.value.categoria,
       idAgricultor: this.idAgricultor,
-      uploadFoto: this.form.value.uploadFoto,
+      byteFoto: this.form.value.byteFoto, // ArrayBuffer aqui
       typeFoto: this.form.value.typeFoto,
       status: true
     };
-
-    console.log(produto)
 
     this.produtoService.createProduto(produto).subscribe(() => {
       this.toastService.success('Produto cadastrado com sucesso');
@@ -121,7 +113,7 @@ export class AddProdutoComponent {
       if (!validImageTypes.includes(file.type)) {
         this.toastService.error('Por favor, selecione um arquivo de imagem válido (PNG ou JPEG).');
         this.form.patchValue({
-          uploadFoto: null,
+          byteFoto: null,
           typeFoto: null
         });
         return;
@@ -129,11 +121,10 @@ export class AddProdutoComponent {
 
       const reader = new FileReader();
       reader.onload = () => {
-        const byteArray = new Uint8Array(reader.result as ArrayBuffer);
-        const base64String = btoa(String.fromCharCode(...byteArray));
-        this.imagemSelecionada = `data:${file.type};base64,${base64String}`;
+        const arrayBuffer = reader.result as ArrayBuffer; // Lê como ArrayBuffer diretamente
+        this.imagemSelecionada = `data:${file.type};base64,${btoa(String.fromCharCode(...new Uint8Array(arrayBuffer)))}`;
         this.form.patchValue({
-          uploadFoto: base64String,
+          byteFoto: arrayBuffer,
           typeFoto: file.type
         });
       };
@@ -143,9 +134,12 @@ export class AddProdutoComponent {
   }
 
   private getIdAgricultor() {
-    this.agricultorService.getIdAgricultorByEmail().subscribe((id) => {
+    this.agricultorService.getIdAgricultorByEmail().subscribe(id => {
       this.idAgricultor = id as unknown as number;
-      console.log(this.idAgricultor)
     });
+  }
+
+  navigateToProduto() {
+    this.router.navigate(['/manter-produto']);
   }
 }

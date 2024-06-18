@@ -34,7 +34,18 @@ export class ProdutoService {
     return this.httpClient.get<ProdutoDtoType[]>(`${this.apiUrl}/listar/${idAgricultor}`, {headers});
   }
 
-  getProdutoById(id: number) {
-    return this.httpClient.get(this.apiUrl + '/' + id);
+  getProdutoById(id: number): Observable<ProdutoDtoType> {
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${sessionStorage.getItem("auth-token")}`
+    });
+    return this.httpClient.get<ProdutoDtoType>(`${this.apiUrl}/${id}`, {headers});
+  }
+
+  getProdutosByCategoria(categoria: string) {
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${sessionStorage.getItem("auth-token")}`
+    });
+
+    return this.httpClient.get<ProdutoDtoType[]>(`${this.apiUrl}/categoria/${categoria}`, {headers});
   }
 }

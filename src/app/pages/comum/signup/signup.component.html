@@ -8,9 +8,9 @@
   <form [formGroup]="signupForm">
     <h4>Informações Pessoais</h4>
     <div class="input-wrapper">
-      <label for="uploadFoto">Foto de Perfil</label>
+      <label for="byteFoto">Foto de Perfil</label>
       <br>
-      <input type="file" id="uploadFoto" (change)="onFileSelected($event)" />
+      <input type="file" id="byteFoto" (change)="onFileSelected($event)" />
     </div>
     <app-primary-input
       formControlName="telefone"
@@ -37,7 +37,6 @@
       type="password"
       label="Senha"
       id="senha"
-      (onClickIcon)="togglePasswordVisibility('senha')"
       [required]="true"
     >
       <img src="/assets/svg/password-icon.svg" alt="Icone de senha" class="pass-icon"/>
@@ -48,7 +47,6 @@
       type="password"
       label="Confirme sua senha"
       id="senhaConfirm"
-      (onClickIcon)="togglePasswordVisibility('senhaConfirm')"
       [required]="true"
     >
       <img src="/assets/svg/password-icon.svg" alt="Icone de senha" class="pass-icon"/>

@@ -9,7 +9,7 @@ import { RegisterRequestType } from "../../../types/register-request.type";
 import { EnderecoService } from "../../../services/endereco.service";
 
 interface SignupForm {
-  uploadFoto: FormControl;
+  byteFoto: FormControl;
   typeFoto: FormControl;
   telefone: FormControl;
   email: FormControl;
@@ -41,7 +41,7 @@ interface SignupForm {
   styleUrls: ['./signup.component.scss']
 })
 export class SignupComponent {
-  signupForm!: FormGroup<SignupForm>;
+  signupForm!: FormGroup; // Removido o tipo do FormGroup para simplificar
   numeroDisabled = false;
 
   constructor(
@@ -64,7 +64,7 @@ export class SignupComponent {
       bairro: new FormControl('', [Validators.required]),
       estado: new FormControl('', [Validators.required]),
       cidade: new FormControl('', [Validators.required]),
-      uploadFoto: new FormControl(''),
+      byteFoto: new FormControl(null), // Tipo ArrayBuffer para byteFoto
       typeFoto: new FormControl('')
     });
   }
@@ -79,6 +79,10 @@ export class SignupComponent {
       this.toastService.error("Por favor, preencha todos os campos corretamente!");
       return;
     }
+
+    const arrayBuffer = this.signupForm.value.byteFoto;
+    const byteArray = new Uint8Array(arrayBuffer);
+    const byteArrayList = Array.from(byteArray) as number[];
 
     let registerData: RegisterRequestType = {
       telefone: this.signupForm.value.telefone,
@@ -96,10 +100,12 @@ export class SignupComponent {
         estado: this.signupForm.value.estado,
         cidade: this.signupForm.value.cidade,
       },
-      uploadFoto: this.signupForm.value.uploadFoto,
+      byteFoto: byteArrayList,
       typeFoto: this.signupForm.value.typeFoto,
       isAgricultor: false
     };
+
+    console.log(registerData)
 
     this.loginService.register(registerData).subscribe({
       next: () => {
@@ -111,15 +117,6 @@ export class SignupComponent {
     });
   }
 
-  navigate() {
-    this.router.navigate(["login"]);
-  }
-
-  togglePasswordVisibility(input: string) {
-    const inputElement = document.getElementById(input) as HTMLInputElement;
-    inputElement.type = inputElement.type === 'password' ? 'text' : 'password';
-  }
-
   onFileSelected(event: Event): void {
     const input = event.target as HTMLInputElement;
     if (input.files && input.files.length > 0) {
@@ -128,7 +125,7 @@ export class SignupComponent {
       if (!validImageTypes.includes(file.type)) {
         this.toastService.error('Por favor, selecione um arquivo de imagem válido (PNG ou JPEG).');
         this.signupForm.patchValue({
-          uploadFoto: null,
+          byteFoto: null,
           typeFoto: null
         });
         return;
@@ -136,10 +133,9 @@ export class SignupComponent {
 
       const reader = new FileReader();
       reader.onload = () => {
-        const byteArray = new Uint8Array(reader.result as ArrayBuffer);
-        const base64String = btoa(String.fromCharCode(...byteArray));
+        const arrayBuffer = reader.result as ArrayBuffer; // Lê como ArrayBuffer diretamente
         this.signupForm.patchValue({
-          uploadFoto: base64String,
+          byteFoto: arrayBuffer,
           typeFoto: file.type
         });
       };
@@ -181,5 +177,9 @@ export class SignupComponent {
       this.signupForm.patchValue({ numero: '' });
       this.numeroDisabled = false;
     }
+  }
+
+  navigate() {
+    this.router.navigate(["login"]);
   }
 }

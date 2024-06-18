@@ -150,7 +150,7 @@ export const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
-    path: "produtos/detalhes",
+    path: "produtos/detalhes/:id",
     component: VisualizarProdutoComponent,
     canActivate: [AuthGuard]
   },

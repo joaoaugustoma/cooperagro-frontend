@@ -1,35 +1,37 @@
-<div class="produtos-wrapper">
+<!-- visualizar-produto.component.html -->
+
+<div class="produtos-wrapper" *ngIf="produto">
   <header>
     <img class="voltar" src="assets/svg/voltar.svg" (click)="navigateToProdutos()">
     <img class="foto" src="assets/png/placeholder-produto.jpg"/>
   </header>
   <div class="produto-section">
-    <h3>Produto A</h3>
+    <h3>{{ produto.titulo }}</h3>
     <div class="produto-preco">
-      <h4>R$ 22,95</h4>
+      <h4>R$ {{ produto.precoUnitario.toFixed(2) }}</h4>
       <span>Por caixa (5kg cada)</span>
     </div>
     <div class="produto-info">
       <div class="produto-info-row">
         <span>Preço do quilo</span>
-        <span class="produto-info-accent">R$4,59</span>
+        <span class="produto-info-accent">R$ {{ (produto.precoUnitario / 5).toFixed(2) }}</span>
       </div>
       <div class="produto-info-row">
         <span>Peso estimado por item</span>
-        <span class="produto-info-accent">5kg</span>
+        <span class="produto-info-accent">{{ produto.pesoEstimado }} kg</span>
       </div>
       <div class="produto-info-row">
         <span>Tempo de Entrega</span>
-        <span class="produto-info-accent">12 horas</span>
+        <span class="produto-info-accent">{{ produto.prazoEntrega }}</span>
       </div>
     </div>
     <div class="produto-descricao">
       <h5>Descrição</h5>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer porttitor magna nec turpis maximus, ut
-        pellentesque ligula gravida.</p>
+      <p>{{ produto.descricao }}</p>
     </div>
     <button class="produto-button" (click)="navigateToSacola()">Adicionar à sacola</button>
 
+    <!-- Seção de "Peça também" (pode ser populada dinamicamente) -->
     <div class="peca-tambem-section">
       <h3>Peça também</h3>
       <div class="produtos">

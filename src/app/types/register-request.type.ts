@@ -8,7 +8,7 @@ export type RegisterRequestType = {
   cnpj: string,
   razaoSocial: string,
   endereco: EnderecoDTOType,
-  uploadFoto: string,
+  byteFoto: number[],
   typeFoto: string,
   isAgricultor: boolean;
 }

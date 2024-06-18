@@ -6,50 +6,24 @@
     </div>
   </header>
   <div class="produtos-section">
-    <mat-tab-group selectedIndex="1">
+    <mat-tab-group selectedIndex="0"> <!-- Changed selectedIndex to 0 to start from the first tab -->
       <mat-tab label="Agricultores">
-        <div class="agricultor-item">
-          <div class="agricultor-agricultor" (click) = "navigateToLoja()">
-            <img src="/assets/png/agricultor-sem-foto.png"/>
-            <div class="agricultor-agricultor-info">
-              <h3>Nome do agricultor</h3>
-              <p>★ 4,3</p>
-            </div>
-          </div>
-          <h4>Produtos Mais Vendidos</h4>
-          <div class="agricultor-list">
-            <div class="agricultor" (click) = "navigateToProduto()">
-              <img src="/assets/png/manter-produto-sem-foto.png"/>
-              <span class="agricultor-nome">Produto A</span>
-              <span>4,3</span>
-            </div>
-            <div class="agricultor" (click) = "navigateToProduto()">
-              <img src="/assets/png/manter-produto-sem-foto.png"/>
-              <span class="agricultor-nome">Produto A</span>
-              <span>4,3</span>
-            </div>
-          </div>
-        </div>
+        <!-- Static content or logic related to Agricultores can go here -->
       </mat-tab>
       <mat-tab [label]="categoria">
-        <div class="produto-item">
-          <div class="produto-agricultor" (click) = "navigateToLoja()">
+        <div class="produto-item" *ngFor="let produto of produtos">
+          <div class="produto-agricultor" (click)="navigateToLoja()">
             <img src="/assets/png/agricultor-sem-foto.png"/>
             <div class="produto-agricultor-info">
-              <h3>Nome do agricultor</h3>
-              <p>★ 4,3</p>
+              <h3>{{ produto.nomeLoja }}</h3> <!-- Assuming you have this field -->
+              <p>★ 4,3</p> <!-- You can dynamically bind rating if available -->
             </div>
           </div>
           <div class="produto-list">
-            <div class="produto" (click) = "navigateToProduto()">
-              <img src="/assets/png/manter-produto-sem-foto.png"/>
-              <span class="produto-nome">Produto A</span>
-              <span>4,3</span>
-            </div>
-            <div class="produto" (click) = "navigateToProduto()">
-              <img src="/assets/png/manter-produto-sem-foto.png"/>
-              <span class="produto-nome">Produto A</span>
-              <span>4,3</span>
+            <div class="produto" (click)="navigateToProduto(produto)">
+              <img src="data:image/png;base64,{{ produto.byteFoto }}" alt="{{ produto.titulo }}"/>
+              <span class="produto-nome">{{ produto.titulo }}</span>
+              <span>4,3</span> <!-- Dynamically bind rating if available -->
             </div>
           </div>
         </div>
