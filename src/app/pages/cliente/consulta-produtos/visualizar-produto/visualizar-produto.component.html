@@ -8,14 +8,9 @@
   <div class="produto-section">
     <h3>{{ produto.titulo }}</h3>
     <div class="produto-preco">
-      <h4>R$ {{ produto.precoUnitario.toFixed(2) }}</h4>
-      <span>Por caixa (5kg cada)</span>
+      <h4>{{ produto.precoUnitario | currency:'BRL':'symbol':'1.2-2' }}</h4>
     </div>
     <div class="produto-info">
-      <div class="produto-info-row">
-        <span>Preço do quilo</span>
-        <span class="produto-info-accent">{{ produto.precoUnitario | currency:'BRL':'symbol':'1.2-2' }}</span>
-      </div>
       <div class="produto-info-row">
         <span>Peso estimado por item</span>
         <span class="produto-info-accent">{{ produto.pesoEstimado }} {{ produto.unidadePeso }}</span>
