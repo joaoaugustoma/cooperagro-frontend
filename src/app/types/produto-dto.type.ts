@@ -13,5 +13,6 @@ export type ProdutoDtoType = {
   unidadePrazo: string,
   categoria: string,
   idAgricultor: number,
-  status: boolean
+  status: boolean,
+  id?: number
 }

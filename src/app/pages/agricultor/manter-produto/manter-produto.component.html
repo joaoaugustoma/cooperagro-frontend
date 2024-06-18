@@ -8,22 +8,21 @@
     <button><img src="/assets/svg/search.svg"/></button>
   </div>
   <div class="manter-produto-list">
-    <div class="manter-produto-item">
+    <div class="manter-produto-item" *ngFor="let produto of produtos">
       <div class="manter-produto-item-image">
         <img src="/assets/png/manter-produto-sem-foto.png"/>
       </div>
       <div class="manter-produto-item-info">
-        <h5>Produto 1</h5>
-        <p>Código</p>
+        <h5>{{ produto.titulo }}</h5>
+        <p>Código: {{ produto.id   }}</p>
       </div>
       <div class="manter-produto-item-side">
-        <a>Detalhes</a>
+        <a [routerLink]="['/manter-produto', produto.id]">Detalhes</a>
         <div class="manter-produto-preco">
-          <span>R$ 10,00</span>
+          <span>R$ {{ produto.precoUnitario.toFixed(2) }}</span>
         </div>
       </div>
     </div>
-
   </div>
 
   <button (click)="addProduto()" class="round-button">+</button>
