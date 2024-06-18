@@ -2,7 +2,7 @@ export type ProdutoDtoType = {
   titulo: string,
   descricao: string,
   precoUnitario: number,
-  byteFoto: ArrayBuffer,
+  byteFoto: number[],
   typeFoto: string,
   pesoEstimado: number,
   unidadePeso: string,

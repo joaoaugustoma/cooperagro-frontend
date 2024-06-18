@@ -42,7 +42,7 @@ interface ProdutoForm {
   templateUrl: './add-produto.component.html',
   styleUrls: ['./add-produto.component.scss']
 })
-export class AddProdutoComponent {
+export class AddProdutoComponent implements OnInit {
   form: FormGroup; // Removido o tipo do FormGroup para simplificar
 
   imagemSelecionada: string | ArrayBuffer | null = null;
@@ -73,13 +73,19 @@ export class AddProdutoComponent {
     });
   }
 
+  ngOnInit(): void {
+    this.getIdAgricultor();
+  }
+
   salvar() {
     if (this.form.invalid) {
       this.toastService.error('Preencha todos os campos obrigatórios');
       return;
     }
 
-    this.getIdAgricultor();
+    const arrayBuffer = this.form.value.byteFoto;
+    const byteArray = new Uint8Array(arrayBuffer);
+    const byteArrayList = Array.from(byteArray) as number[];
 
     const produto: ProdutoDtoType = {
       titulo: this.form.value.nome,
@@ -94,7 +100,7 @@ export class AddProdutoComponent {
       unidadePrazo: this.form.value.tempoEntrega,
       categoria: this.form.value.categoria,
       idAgricultor: this.idAgricultor,
-      byteFoto: this.form.value.byteFoto, // ArrayBuffer aqui
+      byteFoto: byteArrayList,
       typeFoto: this.form.value.typeFoto,
       status: true
     };
