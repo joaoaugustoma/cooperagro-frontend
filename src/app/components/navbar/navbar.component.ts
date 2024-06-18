@@ -33,7 +33,6 @@ export class NavbarComponent implements OnInit {
 
   navigateTo(route: string): void {
     this.router.navigate([route]).then(() => {
-      // Update currentRoute after navigation to ensure the style changes
       this.currentRoute = route;
     });
   }

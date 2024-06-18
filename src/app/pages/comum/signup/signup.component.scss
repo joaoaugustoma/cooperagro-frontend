@@ -1,0 +1,82 @@
+@import "styles/variables";
+
+h4 {
+  font-family: 'Outfit', sans-serif;
+}
+
+form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-bottom: 34px;
+
+  span {
+    font-size: 14px;
+    text-decoration: underline;
+    color: $secondary-color;
+    text-align: end;
+  }
+}
+
+.pass-icon {
+  cursor: pointer;
+}
+
+.estado-cidade-section {
+  display: flex;
+  gap: 24px;
+}
+
+.numero-section {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  font-family: 'Outfit', sans-serif;
+}
+
+.checkbox-wrapper {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+}
+
+.checkbox-wrapper input[type="checkbox"] {
+  opacity: 0;
+  cursor: pointer;
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 15px;
+  width: 15px;
+  border: 1px solid $text-color;
+  border-radius: 50%;
+}
+
+.checkbox-wrapper input[type="checkbox"]:checked ~ .checkmark {
+  background-color: $primary-color;
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.checkbox-wrapper input[type="checkbox"]:checked ~ .checkmark:after {
+  display: block;
+}
+
+.checkbox-wrapper .checkmark:after {
+  left: 4px;
+  top: 1px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+}
+

@@ -1,37 +1,40 @@
 import {Routes} from '@angular/router';
-import {LoginComponent} from './pages/login/login.component';
-import {SignupComponent} from './pages/signup/signup.component';
-import {SplashScreenComponent} from "./pages/splash-screen/splash-screen.component";
-import {HomeComponent} from "./pages/home/home.component";
+import {LoginComponent} from './pages/comum/login/login.component';
+import {SignupComponent} from './pages/comum/signup/signup.component';
+import {SplashScreenComponent} from "./pages/comum/splash-screen/splash-screen.component";
+import {HomeComponent} from "./pages/cliente/home/home.component";
 import {AuthGuard} from "./services/auth-guard.service";
-import {DescobrirComponent} from "./pages/descobrir/descobrir.component";
-import {SacolaComponent} from "./pages/sacola/sacola.component";
-import {PerfilComponent} from "./pages/perfil/perfil.component";
-import {HomeAgricultorComponent} from "./pages/home-agricultor/home-agricultor.component";
-import {PerfilAgricultorComponent} from "./pages/perfil-agricultor/perfil-agricultor.component";
-import {ForbiddenComponent} from "./components/forbidden/forbidden.component";
-import {TornarAgricultorComponent} from "./pages/tornar-agricultor/tornar-agricultor.component";
-import {CancelarAgricultorComponent} from "./pages/cancelar-agricultor/cancelar-agricultor.component";
-import {ManterProdutoComponent} from "./pages/manter-produto/manter-produto.component";
-import {AddProdutoComponent} from "./pages/manter-produto/add-produto/add-produto.component";
-import {ConsultaProdutosComponent} from "./pages/consulta-produtos/consulta-produtos.component";
-import {PedidosComponent} from "./pages/pedidos/pedidos.component";
-import {EditPerfilComponent} from "./pages/perfil/edit-perfil/edit-perfil.component";
-import {DetalhesPedidoComponent} from "./pages/detalhes-pedido/detalhes-pedido.component";
-import {ConfirmarSacolaComponent} from "./pages/sacola/confirmar-sacola/confirmar-sacola.component";
-import {PagamentoSacolaComponent} from "./pages/sacola/pagamento-sacola/pagamento-sacola.component";
+import {DescobrirComponent} from "./pages/cliente/descobrir/descobrir.component";
+import {HomeAgricultorComponent} from "./pages/agricultor/home-agricultor/home-agricultor.component";
+import {SacolaComponent} from "./pages/cliente/sacola/sacola.component";
+import {ConfirmarSacolaComponent} from "./pages/cliente/sacola/confirmar-sacola/confirmar-sacola.component";
+import {PagamentoSacolaComponent} from "./pages/cliente/sacola/pagamento-sacola/pagamento-sacola.component";
 import {
   ConfirmarPagamentoSacolaComponent
-} from "./pages/sacola/pagamento-sacola/confirmar-pagamento-sacola/confirmar-pagamento-sacola.component";
-import {PedidosAgricultorComponent} from "./pages/pedidos-agricultor/pedidos-agricultor.component";
-import {
-  DetalhesPedidoAgricultorComponent
-} from "./pages/detalhes-pedido-agricultor/detalhes-pedido-agricultor.component";
-import {VisualizarLojaComponent} from "./pages/consulta-produtos/visualizar-loja/visualizar-loja.component";
-import {VisualizarProdutoComponent} from "./pages/consulta-produtos/visualizar-produto/visualizar-produto.component";
+} from "./pages/cliente/sacola/pagamento-sacola/confirmar-pagamento-sacola/confirmar-pagamento-sacola.component";
+import {PerfilComponent} from "./pages/cliente/perfil/perfil.component";
+import {EditPerfilComponent} from "./pages/cliente/perfil/edit-perfil/edit-perfil.component";
+import {PerfilAgricultorComponent} from "./pages/agricultor/perfil-agricultor/perfil-agricultor.component";
 import {
   EditPerfilAgricultorComponent
-} from "./pages/perfil-agricultor/edit-perfil-agricultor/edit-perfil-agricultor.component";
+} from "./pages/agricultor/perfil-agricultor/edit-perfil-agricultor/edit-perfil-agricultor.component";
+import {PedidosAgricultorComponent} from "./pages/agricultor/pedidos-agricultor/pedidos-agricultor.component";
+import {
+  DetalhesPedidoAgricultorComponent
+} from "./pages/agricultor/detalhes-pedido-agricultor/detalhes-pedido-agricultor.component";
+import {ForbiddenComponent} from "./components/forbidden/forbidden.component";
+import {TornarAgricultorComponent} from "./pages/cliente/tornar-agricultor/tornar-agricultor.component";
+import {CancelarAgricultorComponent} from "./pages/agricultor/cancelar-agricultor/cancelar-agricultor.component";
+import {ManterProdutoComponent} from "./pages/agricultor/manter-produto/manter-produto.component";
+import {AddProdutoComponent} from "./pages/agricultor/manter-produto/add-produto/add-produto.component";
+import {ConsultaProdutosComponent} from "./pages/cliente/consulta-produtos/consulta-produtos.component";
+import {VisualizarLojaComponent} from "./pages/cliente/consulta-produtos/visualizar-loja/visualizar-loja.component";
+import {
+  VisualizarProdutoComponent
+} from "./pages/cliente/consulta-produtos/visualizar-produto/visualizar-produto.component";
+import {PedidosComponent} from "./pages/cliente/pedidos/pedidos.component";
+import {DetalhesPedidoComponent} from "./pages/cliente/detalhes-pedido/detalhes-pedido.component";
+
 
 export const routes: Routes = [
   {
