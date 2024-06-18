@@ -14,15 +14,15 @@
     <div class="produto-info">
       <div class="produto-info-row">
         <span>Preço do quilo</span>
-        <span class="produto-info-accent">R$ {{ (produto.precoUnitario / 5).toFixed(2) }}</span>
+        <span class="produto-info-accent">{{ produto.precoUnitario | currency:'BRL':'symbol':'1.2-2' }}</span>
       </div>
       <div class="produto-info-row">
         <span>Peso estimado por item</span>
-        <span class="produto-info-accent">{{ produto.pesoEstimado }} kg</span>
+        <span class="produto-info-accent">{{ produto.pesoEstimado }} {{ produto.unidadePeso }}</span>
       </div>
       <div class="produto-info-row">
         <span>Tempo de Entrega</span>
-        <span class="produto-info-accent">{{ produto.prazoEntrega }}</span>
+        <span class="produto-info-accent">{{ produto.prazoEntrega }}/{{produto.unidadePrazo}}</span>
       </div>
     </div>
     <div class="produto-descricao">

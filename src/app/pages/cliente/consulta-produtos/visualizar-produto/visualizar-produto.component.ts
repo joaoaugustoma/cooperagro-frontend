@@ -2,13 +2,14 @@ import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {ProdutoService} from "../../../../services/produto.service";
 import {ProdutoDtoType} from "../../../../types/produto-dto.type";
-import {NgIf} from "@angular/common";
+import {CurrencyPipe, NgIf} from "@angular/common";
 
 @Component({
   selector: 'app-visualizar-produto',
   standalone: true,
   imports: [
-    NgIf
+    NgIf,
+    CurrencyPipe
   ],
   templateUrl: './visualizar-produto.component.html',
   styleUrl: './visualizar-produto.component.scss'
