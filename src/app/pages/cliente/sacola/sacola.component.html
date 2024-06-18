@@ -13,11 +13,11 @@
   <div class="lista-compra">
     <h5>Lista de Compra</h5>
     <div class="itens-compra">
-      <div class="item">
-        <img class="foto-produto" src="assets/png/sem-foto-100.png"/>
+      <div class="item" *ngFor="let produto of produtos">
+        <img class="foto-produto" [src]="produto.byteFoto || 'assets/png/sem-foto-100.png'"/>
         <div class="item-info">
-          <span>Nome do Produto</span>
-          <span class="preco-produto">R$ 0,00</span>
+          <span>{{ produto.titulo }}</span>
+          <span class="preco-produto">{{ produto.precoUnitario | currency:'BRL':'symbol':'1.2-2' }}</span>
         </div>
         <div class="item-quantidade">
           <div class="quantidade">
@@ -28,11 +28,10 @@
         </div>
       </div>
     </div>
-
     <footer>
       <div class="preco-total">
         <span class="preco-total-title">Preço Total</span>
-        <span class="preco-total-text">R$ 0,00</span>
+        <span class="preco-total-text">{{ calcularPrecoTotal() | currency:'BRL':'symbol':'1.2-2' }}</span>
       </div>
       <div class="pagamento-button" (click)="navigateToConfirmar()">
         <button>Faça o Pagamento</button>

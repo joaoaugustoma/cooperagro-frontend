@@ -3,6 +3,8 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {ProdutoService} from "../../../../services/produto.service";
 import {ProdutoDtoType} from "../../../../types/produto-dto.type";
 import {CurrencyPipe, NgIf} from "@angular/common";
+import {SacolaComponent} from "../../sacola/sacola.component";
+import {SacolaService} from "../../../../services/sacola.service";
 
 @Component({
   selector: 'app-visualizar-produto',
@@ -16,13 +18,13 @@ import {CurrencyPipe, NgIf} from "@angular/common";
 })
 export class VisualizarProdutoComponent implements OnInit {
   produto: ProdutoDtoType = {} as ProdutoDtoType;
-  categoria: string = ''
+  categoria: string = '';
   id: number = 0;
   imagemSelecionada: string | ArrayBuffer | null = null;
 
   constructor(private route: ActivatedRoute, private router: Router,
-              private produtoService: ProdutoService) {
-  }
+              private produtoService: ProdutoService, private sacolaService: SacolaService) {}
+
 
   ngOnInit() {
     this.route.params.subscribe(params => {
@@ -36,11 +38,12 @@ export class VisualizarProdutoComponent implements OnInit {
   }
 
   navigateToProdutos() {
-    this.router.navigate(['/produtos'], {queryParams: {categoria: this.categoria}});
+    this.router.navigate(['/produtos'], { queryParams: { categoria: this.categoria } });
   }
 
-  navigateToSacola() {
-    this.router.navigate(['/sacola'])
+  addToSacola() {
+    this.sacolaService.adicionarProduto(this.produto);
+    this.router.navigate(['/sacola']);
   }
 
   private getProduto(id: number) {
