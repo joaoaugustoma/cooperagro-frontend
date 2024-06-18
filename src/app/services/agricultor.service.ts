@@ -33,8 +33,17 @@ export class AgricultorService {
     const authToken = sessionStorage.getItem('auth-token');
     const headers = new HttpHeaders().set('Authorization', `Bearer ${authToken}`);
     const email = this.getCurrentUserEmail(authToken as string);
-    console.log(email)
     return this.http.put(`${this.apiUrl}/cancelar-agricultor`, { email }, {
+      headers,
+      responseType: 'text'
+    });
+  }
+
+  getIdAgricultorByEmail() {
+    const authToken = sessionStorage.getItem('auth-token');
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${authToken}`);
+    const email = this.getCurrentUserEmail(authToken as string);
+    return this.http.get(`${this.apiUrl}/id/${email}`, {
       headers,
       responseType: 'text'
     });

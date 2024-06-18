@@ -2,10 +2,11 @@
   <label [for]="inputName">{{ label }}</label>
   <div class="input-content">
     <select
-      [formControlName]="inputName"
+      [attr.name]="inputName"
       [required]="required"
       [disabled]="disabled"
       (change)="onSelect($event)"
+      [value]="value"
     >
       <option *ngFor="let option of options" [value]="option.value">{{ option.label }}</option>
     </select>

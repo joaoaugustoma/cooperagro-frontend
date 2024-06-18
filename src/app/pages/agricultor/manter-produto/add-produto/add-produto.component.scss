@@ -1,4 +1,4 @@
-@import "../../../../../styles/variables.scss";
+@import "../../../../../styles/variables.scss"; // Importe seus arquivos de variáveis conforme necessário
 
 .add-produto-wrapper {
 
@@ -17,6 +17,7 @@
       position: absolute;
       right: 30px;
       top: 200px;
+      z-index: 999;
     }
   }
 
@@ -27,92 +28,79 @@
       width: 100%;
       height: 150px;
       border: none;
-      border-bottom: black 1px solid;
+      border-bottom: 1px solid black; // Ajuste conforme necessário
       background-color: transparent;
       font-family: 'Outfit', sans-serif;
     }
 
     .form-sub-item {
       display: flex;
-      flex-direction: row;
-      justify-content: space-between;
+      flex-wrap: wrap; // Permitir que os itens quebrem para baixo em telas menores
+      gap: 10px; // Espaço entre os itens
       width: 100%;
 
-      app-primary-input {
-        flex: 1;
-        margin-right: 10px;
+      .custom-select {
+        flex: 1; // Ocupar o espaço disponível
+        margin-right: 10px; // Espaçamento entre os selects
+        width: calc(50% - 5px); // Ajuste para dois selects em uma linha
 
         &:last-child {
           margin-right: 0;
         }
-      }
 
-      app-combo-box-input {
-        flex: 1;
-        margin-left: 10px;
-
-        &:first-child {
-          margin-left: 0;
+        mat-form-field {
+          width: 100%;
         }
       }
 
       &.single-combo-box {
-        app-primary-input {
-          flex: 0.5;
-          margin-right: 0;
-        }
-
-        app-combo-box-input {
-          flex: 0.5;
+        .custom-select {
+          width: calc(50% - 5px); // Ajuste para um select em uma linha
         }
       }
 
       &.two-combo-boxes {
-        app-primary-input {
-          flex: 1;
-        }
-
-        app-combo-box-input {
-          flex: 0.5;
+        .custom-select {
+          width: calc(33.33% - 5px); // Ajuste para três selects em uma linha
         }
       }
     }
   }
-}
 
-.round-button {
-  position: fixed;
-  right: 20px;
-  bottom: 20px;
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  background-color: $text-color;
-  color: $white-bg;
-  border: none;
-  cursor: pointer;
-  z-index: 9999;
-  font-size: 90px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+  .round-button {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: $text-color; // Utilize suas variáveis ou valores diretos conforme necessário
+    color: $white-bg; // Utilize suas variáveis ou valores diretos conforme necessário
+    border: none;
+    cursor: pointer;
+    z-index: 9999;
+    font-size: 90px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
-.round-button-secondary {
-  position: fixed;
-  right: 20px;
-  bottom: 120px;
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  background-color: $warning-color;
-  color: $white-bg;
-  border: none;
-  cursor: pointer;
-  z-index: 9999;
-  font-size: 70px;
-  rotate: 45deg;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  .round-button-secondary {
+    position: fixed;
+    right: 20px;
+    bottom: 120px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: $warning-color; // Utilize suas variáveis ou valores diretos conforme necessário
+    color: $white-bg; // Utilize suas variáveis ou valores diretos conforme necessário
+    border: none;
+    cursor: pointer;
+    z-index: 9999;
+    font-size: 70px;
+    rotate: 45deg; // Ajuste conforme necessário
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }

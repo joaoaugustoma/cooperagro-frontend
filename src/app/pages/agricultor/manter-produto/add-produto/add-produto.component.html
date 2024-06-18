@@ -1,9 +1,13 @@
 <div class="add-produto-wrapper">
   <div class="foto-produto">
-    <img class="foto" src="assets/png/placeholder-produto.jpg"/>
-    <img class="edit-foto-produto" src="/assets/svg/edit-foto-produto.svg"/>
+    <img class="foto" [src]="imagemSelecionada || 'assets/png/placeholder-produto.jpg'" />
   </div>
   <form [formGroup]="form">
+    <div class="input-wrapper">
+      <label for="uploadFoto">Foto do Produto</label>
+      <br>
+      <input type="file" id="uploadFoto" (change)="onFileSelected($event)" />
+    </div>
     <app-primary-input
       formControlName="nome"
       inputName="nome"
@@ -26,14 +30,13 @@
         label="Peso Estimado"
         placeholder="0,00">
       </app-primary-input>
-      <app-combo-box-input
-        formControlName="unidadePeso"
-        label="Unidade"
-        inputName="unidadePeso"
-        [options]="[
-      { value: 'g', label: 'g' },
-      { value: 'kg', label: 'kg' }]">
-      </app-combo-box-input>
+      <mat-form-field appearance="fill" class="custom-select">
+        <mat-label>Unidade</mat-label>
+        <mat-select formControlName="unidadePeso">
+          <mat-option value="g">g</mat-option>
+          <mat-option value="kg">kg</mat-option>
+        </mat-select>
+      </mat-form-field>
     </div>
     <div class="form-sub-item two-combo-boxes">
       <app-primary-input
@@ -43,23 +46,21 @@
         label="Capacidade Produtiva"
         placeholder="0,00">
       </app-primary-input>
-      <app-combo-box-input
-        formControlName="unidadeCapacidade"
-        label="Unidade"
-        inputName="unidadeCapacidade"
-        [options]="[
-      { value: 'g', label: 'g' },
-      { value: 'kg', label: 'kg' }]">
-      </app-combo-box-input>
-      <app-combo-box-input
-        formControlName="tempoCapacidade"
-        label="Tempo"
-        inputName="tempoCapacidade"
-        [options]="[
-        { value: 'semana', label: 'semana' },
-        { value: 'quinzena', label: 'quinzena' },
-        { value: 'mes', label: 'mês' }]">
-      </app-combo-box-input>
+      <mat-form-field appearance="fill" class="custom-select">
+        <mat-label>Unidade</mat-label>
+        <mat-select formControlName="unidadeCapacidade">
+          <mat-option value="g">g</mat-option>
+          <mat-option value="kg">kg</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="fill" class="custom-select">
+        <mat-label>Tempo</mat-label>
+        <mat-select formControlName="tempoCapacidade">
+          <mat-option value="semana">semana</mat-option>
+          <mat-option value="quinzena">quinzena</mat-option>
+          <mat-option value="mes">mês</mat-option>
+        </mat-select>
+      </mat-form-field>
     </div>
     <div class="form-sub-item single-combo-box">
       <app-primary-input
@@ -69,16 +70,24 @@
         label="Prazo Entrega"
         placeholder="0,00">
       </app-primary-input>
-      <app-combo-box-input
-        formControlName="tempoEntrega"
-        label="Tempo"
-        inputName="tempoEntrega"
-        [options]="[
-        { value: 'semana', label: 'semana' },
-        { value: 'quinzena', label: 'quinzena' },
-        { value: 'mes', label: 'mês' }]">
-      </app-combo-box-input>
+      <mat-form-field appearance="fill" class="custom-select">
+        <mat-label>Tempo</mat-label>
+        <mat-select formControlName="tempoEntrega">
+          <mat-option value="semana">semana</mat-option>
+          <mat-option value="quinzena">quinzena</mat-option>
+          <mat-option value="mes">mês</mat-option>
+        </mat-select>
+      </mat-form-field>
     </div>
+    <mat-form-field appearance="fill" class="custom-select">
+      <mat-label>Categoria</mat-label>
+      <mat-select formControlName="categoria">
+        <mat-option value="Frutas">Frutas</mat-option>
+        <mat-option value="Grãos">Grãos</mat-option>
+        <mat-option value="Raízes">Raízes</mat-option>
+        <mat-option value="Vegetais">Vegetais</mat-option>
+      </mat-select>
+    </mat-form-field>
     <textarea
       formControlName="descricao"
       class="descricao"
@@ -86,6 +95,7 @@
     </textarea>
   </form>
   <button (click)="navigateToProduto()" class="round-button-secondary">+</button>
-
-  <button (click)="salvar()" class="round-button"><img src="assets/svg/salvar.svg"></button>
+  <button (click)="salvar()" class="round-button">
+    <img src="assets/svg/salvar.svg">
+  </button>
 </div>

@@ -44,6 +44,7 @@ export class ComboBoxInputComponent implements ControlValueAccessor {
     const value = (event.target as HTMLSelectElement).value;
     this.value = value;
     this.onChange(value);
+    this.onTouched();
   }
 
   writeValue(value: any): void {
