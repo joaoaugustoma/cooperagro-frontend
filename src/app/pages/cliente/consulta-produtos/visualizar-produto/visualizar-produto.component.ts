@@ -56,7 +56,7 @@ export class VisualizarProdutoComponent implements OnInit {
         );
       },
       (error) => {
-        this.toastr.error('Erro ao adicionar produto na sacola');
+        this.toastr.error('Só é possível adicionar produtos do mesmo agricultor na sacola!');
       }
     );
   }
