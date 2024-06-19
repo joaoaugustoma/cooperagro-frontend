@@ -15,7 +15,7 @@
     <h4 *ngIf="!carrinhoCompras">Sacola Vazia!</h4>
     <div class="itens-compra" *ngIf="carrinhoCompras">
       <div class="item" *ngFor="let produto of produtos">
-        <img class="foto-produto" [src]="imagemProduto || 'assets/png/sem-foto-100.png'"/>
+        <img class="foto-produto" [src]="produto.imagemBase64 || 'assets/png/placeholder-produto.jpg'"/>
         <div class="item-info">
           <span>{{ produto.titulo }}</span>
           <span class="preco-produto">{{ produto.precoUnitario | currency:'BRL':'symbol':'1.2-2' }}</span>

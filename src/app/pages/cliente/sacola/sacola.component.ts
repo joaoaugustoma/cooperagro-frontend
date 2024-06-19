@@ -18,9 +18,8 @@ import {SacolaService} from "../../../services/sacola.service";
 export class SacolaComponent implements OnInit{
   nomeLoja: string = 'Loja 1';
   carrinhoCompras: any;
-  produtos: ProdutoDtoType[] = [];
+  produtos: any[] = [];
   precoTotal: any;
-  imagemProduto: string | ArrayBuffer | null = null;
 
   constructor(private router: Router, private sacolaService: SacolaService) {}
 
@@ -31,8 +30,9 @@ export class SacolaComponent implements OnInit{
         console.log(response)
         this.carrinhoCompras = response;
         this.produtos = response.produtos;
-        this.trataImagem();
         this.precoTotal = response.valorTotal;
+
+        this.trataImagem();
       }
     );
   }
@@ -47,7 +47,11 @@ export class SacolaComponent implements OnInit{
 
   private trataImagem() {
     this.produtos.forEach(produto => {
-      this.imagemProduto = 'data:' + produto.typeFoto + ';base64,' + this.arrayBufferToBase64(produto.byteFoto);
+      if(produto.byteFoto != null) {
+        produto.imagemBase64 = 'data:' + produto.typeFoto + ';base64,' + this.arrayBufferToBase64(produto.byteFoto);
+      } else {
+        produto.imagemBase64 = null;
+      }
     });
   }
 
