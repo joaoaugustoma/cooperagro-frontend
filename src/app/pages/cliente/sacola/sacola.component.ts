@@ -16,7 +16,7 @@ import {SacolaService} from "../../../services/sacola.service";
   styleUrl: './sacola.component.scss'
 })
 export class SacolaComponent implements OnInit{
-  nomeLoja: string = 'Loja 1';
+  nomeLoja: string = '';
   carrinhoCompras: any;
   produtos: any[] = [];
   precoTotal: any;
@@ -31,8 +31,11 @@ export class SacolaComponent implements OnInit{
         this.carrinhoCompras = response;
         this.produtos = response.produtos;
         this.precoTotal = response.valorTotal;
+        this.nomeLoja = response.nomeAgricultor;
 
         this.trataImagem();
+      }, (error) => {
+
       }
     );
   }
