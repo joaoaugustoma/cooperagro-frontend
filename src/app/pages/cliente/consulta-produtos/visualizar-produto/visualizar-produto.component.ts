@@ -5,6 +5,7 @@ import {ProdutoDtoType} from "../../../../types/produto-dto.type";
 import {CurrencyPipe, NgIf} from "@angular/common";
 import {SacolaComponent} from "../../sacola/sacola.component";
 import {SacolaService} from "../../../../services/sacola.service";
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-visualizar-produto',
@@ -22,8 +23,12 @@ export class VisualizarProdutoComponent implements OnInit {
   id: number = 0;
   imagemSelecionada: string | ArrayBuffer | null = null;
 
-  constructor(private route: ActivatedRoute, private router: Router,
-              private produtoService: ProdutoService, private sacolaService: SacolaService) {}
+  constructor(private route: ActivatedRoute,
+              private router: Router,
+              private produtoService: ProdutoService,
+              private sacolaService: SacolaService,
+              private toastr: ToastrService) {
+  }
 
 
   ngOnInit() {
@@ -38,12 +43,22 @@ export class VisualizarProdutoComponent implements OnInit {
   }
 
   navigateToProdutos() {
-    this.router.navigate(['/produtos'], { queryParams: { categoria: this.categoria } });
+    this.router.navigate(['/produtos'], {queryParams: {categoria: this.categoria}});
   }
 
   addToSacola() {
-    this.sacolaService.adicionarProduto(this.produto);
-    this.router.navigate(['/sacola']);
+    this.sacolaService.adicionarProduto(this.produto).subscribe(
+      (response) => {
+        this.router.navigate(['/sacola']).then(
+          () => {
+            this.toastr.success('Produto adicionado na sacola');
+          }
+        );
+      },
+      (error) => {
+        this.toastr.error('Erro ao adicionar produto na sacola');
+      }
+    );
   }
 
   private getProduto(id: number) {

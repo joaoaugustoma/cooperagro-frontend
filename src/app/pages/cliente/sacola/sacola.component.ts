@@ -21,7 +21,6 @@ export class SacolaComponent implements OnInit{
   constructor(private router: Router, private sacolaService: SacolaService) {}
 
   ngOnInit() {
-    this.produtos = this.sacolaService.getProdutos();
   }
 
   navigateToHome() {

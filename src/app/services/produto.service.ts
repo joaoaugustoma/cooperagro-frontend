@@ -1,6 +1,5 @@
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Injectable} from '@angular/core';
-import {ConsultaCepResponse} from "../types/consulta-cep-response.type";
 import {ProdutoDtoType} from "../types/produto-dto.type";
 import {Observable} from "rxjs";
 import {AgricultorService} from "./agricultor.service";
@@ -48,4 +47,5 @@ export class ProdutoService {
 
     return this.httpClient.get<ProdutoDtoType[]>(`${this.apiUrl}/categoria/${categoria}`, {headers});
   }
+
 }
