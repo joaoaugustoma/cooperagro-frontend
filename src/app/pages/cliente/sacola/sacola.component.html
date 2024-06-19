@@ -12,26 +12,20 @@
   </div>
   <div class="lista-compra">
     <h5>Lista de Compra</h5>
-    <div class="itens-compra">
+    <h4 *ngIf="!carrinhoCompras">Sacola Vazia!</h4>
+    <div class="itens-compra" *ngIf="carrinhoCompras">
       <div class="item" *ngFor="let produto of produtos">
-        <img class="foto-produto" [src]="produto.byteFoto || 'assets/png/sem-foto-100.png'"/>
+        <img class="foto-produto" [src]="imagemProduto || 'assets/png/sem-foto-100.png'"/>
         <div class="item-info">
           <span>{{ produto.titulo }}</span>
           <span class="preco-produto">{{ produto.precoUnitario | currency:'BRL':'symbol':'1.2-2' }}</span>
         </div>
-        <div class="item-quantidade">
-          <div class="quantidade">
-            <img src="assets/svg/menos.svg"/>
-            <span>1</span>
-            <img src="assets/svg/mais.svg"/>
-          </div>
-        </div>
       </div>
     </div>
-    <footer>
+    <footer *ngIf="carrinhoCompras">
       <div class="preco-total">
         <span class="preco-total-title">Preço Total</span>
-        <span class="preco-total-text">{{ calcularPrecoTotal() | currency:'BRL':'symbol':'1.2-2' }}</span>
+        <span class="preco-total-text">{{ precoTotal | currency:'BRL':'symbol':'1.2-2' }}</span>
       </div>
       <div class="pagamento-button" (click)="navigateToConfirmar()">
         <button>Faça o Pagamento</button>
