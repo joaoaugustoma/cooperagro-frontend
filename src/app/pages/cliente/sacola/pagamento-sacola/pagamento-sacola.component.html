@@ -22,7 +22,7 @@
   <h5>Resumo dos valores</h5>
   <div class="preco-total">
     <span>Total</span>
-    <span>R$ 0,00</span>
+    <span>{{ precoTotal  | currency:'BRL':'symbol':'1.2-2' }}</span>
   </div>
   <footer>
     <div class="pagamento-button" (click)="navigateToConfirmar()">

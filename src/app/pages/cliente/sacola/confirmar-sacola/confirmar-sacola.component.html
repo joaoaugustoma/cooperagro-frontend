@@ -11,8 +11,8 @@
     <div class="endereco-info">
       <img src="assets/svg/endereco-pedido.svg">
       <div class="endereco-detalhe">
-        <span class="endereco-log">R.A Q 46, 16</span>
-        <span class="endereco-bairro">Bairro</span>
+        <span class="endereco-log">{{ logradouro }}</span>
+        <span class="endereco-bairro">{{ bairro }}</span>
       </div>
     </div>
   </div>
@@ -25,21 +25,8 @@
       </div>
       <div class="checkbox">
         <div class="checkbox-wrapper">
-          <input type="checkbox" id="semNumero" class="styled-checkbox" />
-          <label for="semNumero" class="checkmark"></label>
-        </div>
-      </div>
-    </div>
-
-    <div class="tipo-entrega">
-      <div class="tipo-entrega-info">
-        <span class="tipo-entrega-nome">Combinar Entrega</span>
-        <span class="tipo-entrega-prazo">Abrir chat com entregador</span>
-      </div>
-      <div class="checkbox">
-        <div class="checkbox-wrapper">
-          <input type="checkbox" id="semNumero" class="styled-checkbox" />
-          <label for="semNumero" class="checkmark"></label>
+          <input type="checkbox" id="tipoEntrega" class="styled-checkbox" checked/>
+          <label for="tipoEntrega" class="checkmark"></label>
         </div>
       </div>
     </div>
@@ -49,7 +36,7 @@
 <footer>
   <div class="preco-total">
     <span class="preco-total-title">Total</span>
-    <span class="preco-total-text">R$ 0,00</span>
+    <span class="preco-total-text">{{ precoTotal  | currency:'BRL':'symbol':'1.2-2' }}</span>
   </div>
   <div class="pagamento-button" (click)="navigateToPagamento()">
     <button>Continuar</button>

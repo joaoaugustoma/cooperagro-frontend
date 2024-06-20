@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
-import {ProdutoDtoType} from "../../../types/produto-dto.type";
 import {CurrencyPipe, NgForOf, NgIf} from "@angular/common";
 import {SacolaService} from "../../../services/sacola.service";
 
@@ -32,7 +31,7 @@ export class SacolaComponent implements OnInit{
   }
 
   navigateToConfirmar() {
-    this.router.navigate(['/sacola/confirmar']);
+    this.router.navigate(['/sacola/confirmar'], { state: { carrinhoCompras: this.carrinhoCompras } });
   }
 
   private trataImagem() {
