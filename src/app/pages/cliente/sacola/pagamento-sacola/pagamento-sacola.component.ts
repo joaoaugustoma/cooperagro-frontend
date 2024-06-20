@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {Router} from "@angular/router";
 import {CurrencyPipe} from "@angular/common";
+import {PedidoVendaService} from "../../../../services/pedido-venda.service";
 
 @Component({
   selector: 'app-pagamento-sacola',
@@ -16,7 +17,7 @@ export class PagamentoSacolaComponent {
   carrinhoCompras: any;
   precoTotal: number = 0;
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private pedidoVendaService: PedidoVendaService) {
     const navigation = this.router.getCurrentNavigation();
     const state = navigation?.extras.state;
 
@@ -28,8 +29,12 @@ export class PagamentoSacolaComponent {
     }
   }
 
-  navigateToConfirmar() {
-    this.router.navigate(['/sacola/pagamento/confirmar'])
+  confirmar() {
+    this.pedidoVendaService.createPedidoVenda(this.carrinhoCompras).subscribe((response) => {
+      console.log(response)
+    }, error => {
+      console.log(error)
+    });
   }
 
   navigateToSacola() {

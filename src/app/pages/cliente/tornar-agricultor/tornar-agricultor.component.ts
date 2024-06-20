@@ -7,7 +7,9 @@ import {PrimaryInputComponent} from "../../../components/primary-input/primary-i
 import {AgricultorService} from "../../../services/agricultor.service";
 
 interface TornarAgricultorForm {
-  nomeLoja: FormControl
+  nomeLoja: FormControl,
+  clientId: FormControl,
+  clientSecret: FormControl
 }
 @Component({
   selector: 'app-tornar-agricultor',
@@ -24,7 +26,9 @@ export class TornarAgricultorComponent {
 
   constructor(private router: Router, private agricultorService: AgricultorService, private toastr: ToastrService) {
     this.tornarAgricultorForm = new FormGroup({
-      nomeLoja: new FormControl('')
+      nomeLoja: new FormControl(''),
+      clientId: new FormControl(''),
+      clientSecret: new FormControl('')
     });
   }
 
@@ -33,7 +37,13 @@ export class TornarAgricultorComponent {
   }
 
   submit() {
-    this.agricultorService.tornarAgricultor(this.tornarAgricultorForm.value.nomeLoja).subscribe({
+    const request = {
+      nomeLoja: this.tornarAgricultorForm.value.nomeLoja,
+      clientId: this.tornarAgricultorForm.value.clientId,
+      clientSecret: this.tornarAgricultorForm.value.clientSecret
+    };
+
+    this.agricultorService.tornarAgricultor(request).subscribe({
       next: (newToken) => {
         sessionStorage.setItem('auth-token', newToken);
         const tokenPayload = jwtDecode<any>(newToken);

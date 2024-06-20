@@ -11,6 +11,24 @@
       [required]="true"
     >
     </app-primary-input>
+    <app-primary-input
+      formControlName="clientId"
+      inputName="clientId"
+      type="text"
+      label="CLIENT ID"
+      placeholder="CLIENT ID"
+      [required]="true"
+    >
+    </app-primary-input>
+    <app-primary-input
+      formControlName="clientSecret"
+      inputName="clientSecret"
+      type="text"
+      label="CLIENT SECRET"
+      placeholder="CLIENT SECRET"
+      [required]="true"
+    >
+    </app-primary-input>
   </form>
   <div class="btn-wrapper">
     <span class="btn-secondary" (click)="navigate()">Cancelar</span>

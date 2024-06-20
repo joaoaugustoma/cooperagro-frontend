@@ -12,11 +12,16 @@ export class AgricultorService {
 
   constructor(private http: HttpClient) { }
 
-  tornarAgricultor(nomeLoja: string) {
+  tornarAgricultor(request : any) {
     const authToken = sessionStorage.getItem('auth-token');
     const headers = new HttpHeaders().set('Authorization', `Bearer ${authToken}`);
     const email = this.getCurrentUserEmail(authToken as string);
-    let tornarAgricultorDto : TornarAgricultorDtoType = { email, nomeLoja };
+    let tornarAgricultorDto : TornarAgricultorDtoType = {
+      email,
+      nomeLoja: request.nomeLoja,
+      clientId: request.clientId,
+      clientSecret: request.clientSecret
+    };
 
     return this.http.put(`${this.apiUrl}/tornar-agricultor`, tornarAgricultorDto, {
       headers,
