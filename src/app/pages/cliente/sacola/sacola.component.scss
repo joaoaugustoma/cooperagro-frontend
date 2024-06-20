@@ -116,7 +116,14 @@ header {
     .item{
       display: flex;
       align-items: center;
-      gap: 20px;
+      justify-content: space-between;
+
+      .item-actions {
+        span {
+          color: $danger-color;
+          font-weight: bold;
+        }
+      }
 
       .foto-produto {
         width: 80px;

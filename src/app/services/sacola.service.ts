@@ -39,4 +39,15 @@ export class SacolaService {
 
     return this.http.post<any>(this.apiUrl + "/ativo", email, {headers})
   }
+
+  removeProduto(produtoId: number) {
+    const authToken = sessionStorage.getItem('auth-token');
+    const email = this.getCurrentUserEmail(authToken as string);
+
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${authToken}`
+    });
+
+    return this.http.post<any>(this.apiUrl + "/remove-produto", { produtoId , email }, {headers})
+  }
 }

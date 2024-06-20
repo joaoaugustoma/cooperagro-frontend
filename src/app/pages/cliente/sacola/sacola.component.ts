@@ -24,20 +24,7 @@ export class SacolaComponent implements OnInit{
   constructor(private router: Router, private sacolaService: SacolaService) {}
 
   ngOnInit() {
-
-    this.sacolaService.getCarrinhoCompras().subscribe(
-      (response) => {
-        console.log(response)
-        this.carrinhoCompras = response;
-        this.produtos = response.produtos;
-        this.precoTotal = response.valorTotal;
-        this.nomeLoja = response.nomeAgricultor;
-
-        this.trataImagem();
-      }, (error) => {
-
-      }
-    );
+    this.getCarrihoCompras();
   }
 
   navigateToHome() {
@@ -65,5 +52,30 @@ export class SacolaComponent implements OnInit{
       binary += String.fromCharCode(bytes[i]);
     }
     return window.btoa(binary);
+  }
+
+  removeProduto(produtoId: number) {
+    this.sacolaService.removeProduto(produtoId).subscribe(
+      (response) => {
+        this.getCarrihoCompras();
+      }, (error) => {
+
+      }
+    );
+  }
+
+  private getCarrihoCompras() {
+    this.sacolaService.getCarrinhoCompras().subscribe(
+      (response) => {
+        this.carrinhoCompras = response;
+        this.produtos = response.produtos;
+        this.precoTotal = response.valorTotal;
+        this.nomeLoja = response.nomeAgricultor;
+
+        this.trataImagem();
+      }, (error) => {
+
+      }
+    );
   }
 }

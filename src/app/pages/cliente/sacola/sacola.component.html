@@ -20,6 +20,9 @@
           <span>{{ produto.titulo }}</span>
           <span class="preco-produto">{{ produto.precoUnitario | currency:'BRL':'symbol':'1.2-2' }}</span>
         </div>
+        <div class="item-actions">
+          <span (click)="removeProduto(produto.id)">Remover</span>
+        </div>
       </div>
     </div>
     <footer *ngIf="carrinhoCompras">
