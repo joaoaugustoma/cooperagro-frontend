@@ -25,14 +25,13 @@ export class PedidoVendaService {
 
     const requestBody = {
       valorTotalPedido: carrinhoCompra.valorTotal,
-      dataCriacao: carrinhoCompra,
-      situacaoPedido: dataCriacao,
-      carrinhoCompra: situacaoPedido
+      dataCriacao: dataCriacao,
+      situacaoPedido: situacaoPedido,
+      carrinhoCompra: carrinhoCompra
     }
 
-    console.log(requestBody)
 
-    return this.http.post<any>(this.apiUrl + "/create/" + email, {requestBody}, {headers})
+    return this.http.post<any>(this.apiUrl + "/create/" + email, requestBody, {headers})
   }
 
   private getCurrentUserEmail(authToken: string) {

@@ -24,14 +24,13 @@ export class PagamentoSacolaComponent {
     if (state) {
       this.carrinhoCompras = state['carrinhoCompras'];
       this.precoTotal = this.carrinhoCompras.valorTotal;
-      console.log(this.carrinhoCompras)
       this.nomeLoja = this.carrinhoCompras.nomeAgricultor;
     }
   }
 
   confirmar() {
     this.pedidoVendaService.createPedidoVenda(this.carrinhoCompras).subscribe((response) => {
-      console.log(response)
+      this.router.navigate(['/mercado-pago/pagamento'],{ state: { pedidoVenda: response } });
     }, error => {
       console.log(error)
     });

@@ -9,9 +9,6 @@ import {HomeAgricultorComponent} from "./pages/agricultor/home-agricultor/home-a
 import {SacolaComponent} from "./pages/cliente/sacola/sacola.component";
 import {ConfirmarSacolaComponent} from "./pages/cliente/sacola/confirmar-sacola/confirmar-sacola.component";
 import {PagamentoSacolaComponent} from "./pages/cliente/sacola/pagamento-sacola/pagamento-sacola.component";
-import {
-  ConfirmarPagamentoSacolaComponent
-} from "./pages/cliente/sacola/pagamento-sacola/confirmar-pagamento-sacola/confirmar-pagamento-sacola.component";
 import {PerfilComponent} from "./pages/cliente/perfil/perfil.component";
 import {EditPerfilComponent} from "./pages/cliente/perfil/edit-perfil/edit-perfil.component";
 import {PerfilAgricultorComponent} from "./pages/agricultor/perfil-agricultor/perfil-agricultor.component";
@@ -78,11 +75,6 @@ export const routes: Routes = [
   {
     path: "sacola/pagamento",
     component: PagamentoSacolaComponent,
-    canActivate: [AuthGuard]
-  },
-  {
-    path: "sacola/pagamento/confirmar",
-    component: ConfirmarPagamentoSacolaComponent,
     canActivate: [AuthGuard]
   },
   {
