@@ -19,8 +19,7 @@ export class AgricultorService {
     let tornarAgricultorDto : TornarAgricultorDtoType = {
       email,
       nomeLoja: request.nomeLoja,
-      clientId: request.clientId,
-      clientSecret: request.clientSecret
+      mercadoPagoPublicKey: request.mercadoPagoPublicKey,
     };
 
     return this.http.put(`${this.apiUrl}/tornar-agricultor`, tornarAgricultorDto, {

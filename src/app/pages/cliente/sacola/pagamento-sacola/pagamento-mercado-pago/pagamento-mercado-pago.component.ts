@@ -13,7 +13,9 @@ declare const MercadoPago: any;
   styleUrl: './pagamento-mercado-pago.component.scss'
 })
 export class PagamentoMercadoPagoComponent implements OnInit, AfterViewInit {
+  preferenceId: string = '';
   pedidoVenda: any = {};
+  vendedorPublicKey: string = '';
 
   constructor(private router: Router, private pedidoVendaService: PedidoVendaService) {
     const navigation = this.router.getCurrentNavigation();
@@ -31,13 +33,15 @@ export class PagamentoMercadoPagoComponent implements OnInit, AfterViewInit {
   ngAfterViewInit(): void {
   }
 
-  initializeMercadoPago(preferenceId: string): void {
+  initializeMercadoPago(): void {
+    //PUBLIC KEY VENDEDOR
+
     const mp = new MercadoPago('APP_USR-ec0f153f-66e8-4669-a6be-1bbed8547c5d');
     const bricksBuilder = mp.bricks();
 
     bricksBuilder.create('wallet', 'wallet_container', {
       initialization: {
-        preferenceId: preferenceId,
+        preferenceId: this.preferenceId,
       },
       customization: {
         texts: {
@@ -50,7 +54,9 @@ export class PagamentoMercadoPagoComponent implements OnInit, AfterViewInit {
   private getPreferenceId(pedidoVenda: any) {
     this.pedidoVendaService.getPreferenceId(pedidoVenda).subscribe(
       (response) => {
-        this.initializeMercadoPago(response.id);
+        this.preferenceId = response.id;
+        this.vendedorPublicKey = response.vendedorPublicKey;
+        this.initializeMercadoPago();
       },
       (error) => {
         console.error('Erro ao obter preferenceId:', error);

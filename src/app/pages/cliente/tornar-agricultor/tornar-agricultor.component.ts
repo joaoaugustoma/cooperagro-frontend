@@ -8,8 +8,7 @@ import {AgricultorService} from "../../../services/agricultor.service";
 
 interface TornarAgricultorForm {
   nomeLoja: FormControl,
-  clientId: FormControl,
-  clientSecret: FormControl
+  publicKey: FormControl
 }
 @Component({
   selector: 'app-tornar-agricultor',
@@ -27,8 +26,7 @@ export class TornarAgricultorComponent {
   constructor(private router: Router, private agricultorService: AgricultorService, private toastr: ToastrService) {
     this.tornarAgricultorForm = new FormGroup({
       nomeLoja: new FormControl(''),
-      clientId: new FormControl(''),
-      clientSecret: new FormControl('')
+      publicKey: new FormControl(''),
     });
   }
 
@@ -39,8 +37,7 @@ export class TornarAgricultorComponent {
   submit() {
     const request = {
       nomeLoja: this.tornarAgricultorForm.value.nomeLoja,
-      clientId: this.tornarAgricultorForm.value.clientId,
-      clientSecret: this.tornarAgricultorForm.value.clientSecret
+      mercadoPagoPublicKey: this.tornarAgricultorForm.value.publicKey,
     };
 
     this.agricultorService.tornarAgricultor(request).subscribe({
