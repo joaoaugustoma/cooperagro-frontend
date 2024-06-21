@@ -34,9 +34,7 @@ export class PagamentoMercadoPagoComponent implements OnInit, AfterViewInit {
   }
 
   initializeMercadoPago(): void {
-    //PUBLIC KEY VENDEDOR
-
-    const mp = new MercadoPago('APP_USR-ec0f153f-66e8-4669-a6be-1bbed8547c5d');
+    const mp = new MercadoPago(this.vendedorPublicKey);
     const bricksBuilder = mp.bricks();
 
     bricksBuilder.create('wallet', 'wallet_container', {
