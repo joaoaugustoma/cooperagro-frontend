@@ -31,7 +31,8 @@ export class AuthGuard implements CanActivate {
           } else if ((url.includes('home') || url.includes('perfil') || url.includes('perfil/editar')
             || url.includes('descobrir') || url.includes('sacola')  || url.includes('sacola/confirmar')
               || url.includes('sacola/pagamento')  || url.includes('sacola/pagamento/confirmar')
-              || url.includes('produtos') || url.includes('produtos/loja') || url.includes('produtos/detalhes') || url.includes('meus-pedidos')  || url.includes('meus-pedidos/detalhes')
+              || url.includes('produtos') || url.includes('produtos/loja') || url.includes('produtos/detalhes')
+              || url.includes('meus-pedidos')  || url.includes('meus-pedidos/detalhes')|| url.includes('mercado-pago/pagamento')
               || url.includes('tornar-agricultor'))
             && userRole === 'ROLE_USUARIO') {
             return true;

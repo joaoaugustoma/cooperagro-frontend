@@ -31,6 +31,9 @@ import {
 } from "./pages/cliente/consulta-produtos/visualizar-produto/visualizar-produto.component";
 import {PedidosComponent} from "./pages/cliente/pedidos/pedidos.component";
 import {DetalhesPedidoComponent} from "./pages/cliente/detalhes-pedido/detalhes-pedido.component";
+import {
+  PagamentoMercadoPagoComponent
+} from "./pages/cliente/sacola/pagamento-sacola/pagamento-mercado-pago/pagamento-mercado-pago.component";
 
 
 export const routes: Routes = [
@@ -154,6 +157,11 @@ export const routes: Routes = [
   {
     path: "meus-pedidos/detalhes",
     component: DetalhesPedidoComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: "mercado-pago/pagamento",
+    component: PagamentoMercadoPagoComponent,
     canActivate: [AuthGuard]
   }
 ];

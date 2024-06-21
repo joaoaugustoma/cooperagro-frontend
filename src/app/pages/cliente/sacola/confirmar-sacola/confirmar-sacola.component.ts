@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 import {EnderecoService} from "../../../../services/endereco.service";
 import {CurrencyPipe} from "@angular/common";
+import {PedidoVendaService} from "../../../../services/pedido-venda.service";
 
 @Component({
   selector: 'app-confirmar-sacola',
@@ -19,7 +20,8 @@ export class ConfirmarSacolaComponent implements OnInit {
   precoTotal: number = 0;
 
   constructor(private router: Router,
-              private enderecoService: EnderecoService) {
+              private enderecoService: EnderecoService,
+              private pedidoVendaService: PedidoVendaService) {
     const navigation = this.router.getCurrentNavigation();
     const state = navigation?.extras.state;
 
@@ -37,8 +39,10 @@ export class ConfirmarSacolaComponent implements OnInit {
     this.router.navigate(["/sacola"]);
   }
 
-  navigateToPagamento() {
-    this.router.navigate(["/sacola/pagamento"], { state: { carrinhoCompras: this.carrinhoCompras } });
+  finalizarPedido() {
+    this.pedidoVendaService.createPedidoVenda(this.carrinhoCompras).subscribe((response) => {
+      this.router.navigate(["/sacola/pagamento"], { state: { pedidoVenda: response } });
+    });
   }
 
   private getEndereco() {

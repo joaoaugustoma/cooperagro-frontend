@@ -13,7 +13,7 @@ export const appConfig: ApplicationConfig = {
     provideToastr(
       {
         closeButton: true, positionClass: 'toast-top-center',
-        timeOut: 1000000,preventDuplicates:false
+        timeOut: 5000,preventDuplicates:false
       }
     ),
     provideHttpClient(withFetch())

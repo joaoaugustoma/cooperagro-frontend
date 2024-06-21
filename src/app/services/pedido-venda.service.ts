@@ -30,12 +30,21 @@ export class PedidoVendaService {
       carrinhoCompra: carrinhoCompra
     }
 
-
     return this.http.post<any>(this.apiUrl + "/create/" + email, requestBody, {headers})
   }
 
   private getCurrentUserEmail(authToken: string) {
     const tokenPayload = jwtDecode<any>(authToken);
     return tokenPayload.sub;
+  }
+
+  getPreferenceId(pedidoVenda: any) {
+    const authToken = sessionStorage.getItem('auth-token');
+
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${authToken}`
+    });
+
+    return this.http.post<any>(this.apiUrl + "/mercado-pago/create-preference", pedidoVenda, {headers})
   }
 }
