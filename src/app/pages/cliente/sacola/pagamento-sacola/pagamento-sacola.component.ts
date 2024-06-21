@@ -26,8 +26,8 @@ export class PagamentoSacolaComponent {
 
     if (state) {
       this.pedidoVenda = state['pedidoVenda'];
+      this.nomeLoja = state['nomeAgricultor'];
       this.precoTotal = this.pedidoVenda.valorTotalPedido;
-      this.nomeLoja = this.pedidoVenda?.carrinhoCompra?.nomeAgricultor;
     }
   }
 

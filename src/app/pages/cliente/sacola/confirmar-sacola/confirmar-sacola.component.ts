@@ -41,7 +41,8 @@ export class ConfirmarSacolaComponent implements OnInit {
 
   finalizarPedido() {
     this.pedidoVendaService.createPedidoVenda(this.carrinhoCompras).subscribe((response) => {
-      this.router.navigate(["/sacola/pagamento"], { state: { pedidoVenda: response } });
+      console.log()
+      this.router.navigate(["/sacola/pagamento"], { state: { pedidoVenda: response, nomeAgricultor: this.carrinhoCompras.nomeAgricultor} });
     });
   }
 
