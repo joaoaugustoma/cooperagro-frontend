@@ -1,7 +1,6 @@
 import {Component} from '@angular/core';
 import {Router} from "@angular/router";
 import {CurrencyPipe} from "@angular/common";
-import {PedidoVendaService} from "../../../../services/pedido-venda.service";
 import {PagamentoMercadoPagoComponent} from "./pagamento-mercado-pago/pagamento-mercado-pago.component";
 
 @Component({
