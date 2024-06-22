@@ -20,7 +20,7 @@ export class PagamentoSacolaComponent {
   precoTotal: number = 0;
 
 
-  constructor(private router: Router, private pedidoVendaService: PedidoVendaService) {
+  constructor(private router: Router) {
     const navigation = this.router.getCurrentNavigation();
     const state = navigation?.extras.state;
 
