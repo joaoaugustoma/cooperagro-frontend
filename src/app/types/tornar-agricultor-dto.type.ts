@@ -1,5 +1,6 @@
 export type TornarAgricultorDtoType = {
   email: string,
-  nomeLoja: string
-  mercadoPagoPublicKey: string
+  nomeLoja: string,
+  mercadoPagoClientId: string,
+  mercadoPagoClientSecret: string
 }

@@ -12,11 +12,20 @@
     >
     </app-primary-input>
     <app-primary-input
-      formControlName="publicKey"
-      inputName="publicKey"
+      formControlName="clientId"
+      inputName="clientId"
       type="text"
-      label="Mercado Pago Public Key"
-      placeholder="APP_USR-"
+      label="Mercado Pago Client ID"
+      placeholder="Client Id"
+      [required]="true"
+    >
+    </app-primary-input>
+    <app-primary-input
+      formControlName="clientSecret"
+      inputName="clientSecret"
+      type="text"
+      label="Mercado Pago Client Secret"
+      placeholder="Client Secret"
       [required]="true"
     >
     </app-primary-input>
