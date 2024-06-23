@@ -8,71 +8,24 @@
     <h5>Histórico</h5>
     <div class="pedidos">
 
-      <div class="pedido" (click) = "navigateToDetalhes()">
+      <div class="pedido" *ngFor="let pedido of pedidos" (click) = "navigateToDetalhes()">
         <div class="pedido-header">
-          <span>Sab, 22 junho 2024</span>
+          <span>{{ pedido.dataCriacao }}</span>
         </div>
         <div class="pedido-section">
           <div class="pedido-agricultor">
             <img src="assets/png/agricultor-sem-foto.png"/>
-            <span>Loja A</span>
+            <span>{{ pedido.carrinhoCompra.nomeAgricultor }}</span>
           </div>
           <div class="pedido-info">
-            <span>Pedido em andamento - N° 4</span>
-            <div class="pedido-itens">
-              <span>1 - Item A</span>
-              <span>1 - Item B</span>
+            <span>Pedido em andamento - N° {{pedido.id}}</span>
+            <div class="pedido-itens" *ngFor="let produto of produtosPedido">
+              <span>{{ produto.titulo }}</span>
             </div>
           </div>
           <div class="pedido-avaliacao">
             <span>Avaliação</span>
             <span class="stars">☆☆☆★★</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="pedido" (click) = "navigateToDetalhes()">
-        <div class="pedido-header">
-          <span>Sab, 22 junho 2024</span>
-        </div>
-        <div class="pedido-section">
-          <div class="pedido-agricultor">
-            <img src="assets/png/agricultor-sem-foto.png"/>
-            <span>Loja A</span>
-          </div>
-          <div class="pedido-info">
-            <span>Pedido em andamento - N° 4</span>
-            <div class="pedido-itens">
-              <span>1 - Item A</span>
-              <span>1 - Item B</span>
-            </div>
-          </div>
-          <div class="pedido-avaliacao">
-            <span>Avaliação</span>
-            <span class="stars">☆★★★★</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="pedido" (click) = "navigateToDetalhes()">
-        <div class="pedido-header">
-          <span>Sab, 22 junho 2024</span>
-        </div>
-        <div class="pedido-section">
-          <div class="pedido-agricultor">
-            <img src="assets/png/agricultor-sem-foto.png"/>
-            <span>Loja A</span>
-          </div>
-          <div class="pedido-info">
-            <span>Pedido em andamento - N° 4</span>
-            <div class="pedido-itens">
-              <span>1 - Item A</span>
-              <span>1 - Item B</span>
-            </div>
-          </div>
-          <div class="pedido-avaliacao">
-            <span>Avaliação</span>
-            <span class="stars">☆★★★★</span>
           </div>
         </div>
       </div>
