@@ -27,11 +27,11 @@
     <div class="ultimos-pedidos-content">
       <div class="pedidos">
         <div class="pedido" *ngFor="let pedido of pedidos">
-          <img [src]="pedido.carrinhoCompra.produtos(0).byte.imagemBase64 || 'assets/png/sem-foto-100.png'">
+          <img src="assets/png/sem-foto-100.png">
           <div class="pedido-info">
             <div class="pedido-info-sub">
-              <span class="nome-cliente">{{ pedido.clienteNome }}</span>
-              <span class="numero-pedido">#{{ pedido.numeroPedido }}</span>
+              <span class="nome-cliente">{{ pedido.nomeCliente }}</span>
+              <span class="numero-pedido">#{{ pedido.id }}</span>
             </div>
             <div class="pedido-info-sub">
               <span class="data-pedido">{{ pedido.dataCriacao | date:'dd/MM/yyyy' }}</span>

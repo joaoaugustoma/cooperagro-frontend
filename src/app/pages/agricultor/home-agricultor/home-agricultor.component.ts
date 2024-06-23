@@ -41,7 +41,6 @@ export class HomeAgricultorComponent implements OnInit {
           this.toastr.error('Sem pedidos!');
         console.log(data)
         this.pedidos = data;
-        this.imagemBase64 = 'data:' + this.pedidos.produto.typeFoto + ';base64,' + this.arrayBufferToBase64(produto.byteFoto);
       },
       (error) => {
         console.error('Erro ao carregar pedidos', error);
