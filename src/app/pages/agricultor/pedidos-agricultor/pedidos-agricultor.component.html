@@ -8,13 +8,13 @@
     <h5>Histórico</h5>
     <div class="pedidos">
 
-      <div class="pedido" (click) = "navigateToDetalhes()">
+      <div class="pedido">
         <div class="pedido-header">
           <span>Sab, 22 junho 2024</span>
         </div>
-        <div class="pedido-section" *ngFor="let pedido of pedidos">
+        <div class="pedido-section" *ngFor="let pedido of pedidos" (click) = "navigateToDetalhes()">
           <div class="pedido-info">
-            <span>Pedido {{ pedido.situacaoPedido }} - N° {{ pedido.id }}</span>
+            <span>Pedido {{ pedido.situacaoEntrega  ? pedido.situacaoEntrega : pedido.situacaoPedido }} - N° {{ pedido.id }}</span>
             <div class="pedido-itens" *ngFor="let produto of produtosPedido">
               <span>{{ produto.titulo }}</span>
             </div>
@@ -23,6 +23,8 @@
             <span>Avaliação</span>
             <span class="stars">☆☆☆★★</span>
           </div>
+          <button class="pedido-entrega" (click)="iniciarEntregaPedido(pedido.id)"
+                  *ngIf="pedido.situacaoPedido === 'PAGO' && !pedido.situacaoEntrega">Iniciar Entrega</button>
         </div>
       </div>
 

@@ -57,4 +57,13 @@ export class PedidoVendaService {
 
     return this.http.get<any>(this.apiUrl + "/agricultor/" + email, {headers})
   }
+
+  iniciarEntregaPedido(id: number) {
+    const authToken = sessionStorage.getItem('auth-token');
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${authToken}`
+    });
+
+    return this.http.get<any>(this.apiUrl + "/iniciar-entrega/" + id, {headers})
+  }
 }

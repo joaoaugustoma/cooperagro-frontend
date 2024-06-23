@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
-import {CurrencyPipe, DatePipe, NgForOf} from "@angular/common";
+import {CurrencyPipe, DatePipe, NgForOf, NgIf} from "@angular/common";
 import {LoginService} from "../../../services/login.service";
 import {PedidoVendaService} from "../../../services/pedido-venda.service";
 import {ToastrService} from "ngx-toastr";
@@ -11,7 +11,8 @@ import {ToastrService} from "ngx-toastr";
   imports: [
     CurrencyPipe,
     DatePipe,
-    NgForOf
+    NgForOf,
+    NgIf
   ],
   templateUrl: './pedidos-agricultor.component.html',
   styleUrl: './pedidos-agricultor.component.scss'
@@ -52,5 +53,19 @@ export class PedidosAgricultorComponent implements OnInit{
 
   navigateToDetalhes() {
     this.router.navigate(['/pedidos-agricultor/detalhes'])
+  }
+
+  iniciarEntregaPedido(id: number) {
+    this.pedidoVendaService.iniciarEntregaPedido(id).subscribe(
+      (data) => {
+        this.toastr.success('Entrega iniciada com sucesso!');
+        this.carregarPedidos();
+      },
+      (error) => {
+        console.error('Erro ao iniciar entrega', error);
+        this.toastr.error('Erro ao iniciar entrega');
+      }
+    );
+
   }
 }
