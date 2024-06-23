@@ -39,7 +39,6 @@ export class HomeAgricultorComponent implements OnInit {
       (data: any[]) => {
         if(!data)
           this.toastr.error('Sem pedidos!');
-        console.log(data)
         this.pedidos = data;
       },
       (error) => {

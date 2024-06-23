@@ -34,7 +34,6 @@ export class PedidosAgricultorComponent implements OnInit{
       (data: any[]) => {
         if(!data)
           this.toastr.error('Sem pedidos!');
-        console.log(data)
         this.pedidos = data;
         this.pedidos.forEach(pedido => {
           this.produtosPedido = pedido.carrinhoCompra.produtos;
