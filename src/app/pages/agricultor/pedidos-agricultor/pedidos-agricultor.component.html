@@ -12,7 +12,7 @@
         <div class="pedido-header">
           <span>Sab, 22 junho 2024</span>
         </div>
-        <div class="pedido-section" *ngFor="let pedido of pedidos" (click) = "navigateToDetalhes()">
+        <div class="pedido-section" *ngFor="let pedido of pedidos">
           <div class="pedido-info">
             <span>Pedido {{ pedido.situacaoEntrega  ? pedido.situacaoEntrega : pedido.situacaoPedido }} - N° {{ pedido.id }}</span>
             <div class="pedido-itens" *ngFor="let produto of produtosPedido">

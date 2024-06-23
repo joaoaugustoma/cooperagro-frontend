@@ -66,4 +66,15 @@ export class PedidoVendaService {
 
     return this.http.get<any>(this.apiUrl + "/iniciar-entrega/" + id, {headers})
   }
+
+  getUltimoPedido() {
+    const authToken = sessionStorage.getItem('auth-token');
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${authToken}`
+    });
+
+    const email = this.getCurrentUserEmail(authToken as string);
+
+    return this.http.get<any>(this.apiUrl + "/ultimo/" + email, {headers})
+  }
 }

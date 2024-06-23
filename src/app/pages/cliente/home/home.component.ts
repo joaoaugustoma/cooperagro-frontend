@@ -5,6 +5,7 @@ import {NgOptimizedImage} from "@angular/common";
 import {StatusPedido} from "../../../enums/status-pedido";
 import {NavbarComponent} from "../../../components/navbar/navbar.component";
 import {Router} from "@angular/router";
+import {PedidoVendaService} from "../../../services/pedido-venda.service";
 
 @Component({
   selector: 'app-home',
@@ -19,11 +20,19 @@ import {Router} from "@angular/router";
   styleUrl: './home.component.scss'
 })
 export class HomeComponent {
-  nomeLoja: string = "Loja do Zé";
-  numeroPedido: string = "123456";
-  statusPedido: StatusPedido = StatusPedido.SAIU_PARA_ENTREGA;
+  nomeLoja: string = "";
+  numeroPedido: string = "";
+  statusPedido: string = "";
 
-  constructor(private router: Router) {}
+  constructor(private router: Router,
+              private pedidoVendaService: PedidoVendaService) {
+    this.pedidoVendaService.getUltimoPedido().subscribe(pedido => {
+      console.log(pedido);
+      this.numeroPedido = pedido.id;
+      this.statusPedido = pedido.situacaoEntrega  ? pedido.situacaoEntrega : pedido.situacaoPedido;
+      this.nomeLoja = pedido.carrinhoCompra.nomeAgricultor;
+    });
+  }
 
   navigateToProdutos(categoria: string) {
     this.router.navigate(['/produtos'], { queryParams: { categoria: categoria } });
