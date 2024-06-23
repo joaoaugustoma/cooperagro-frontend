@@ -26,21 +26,19 @@
     </div>
     <div class="ultimos-pedidos-content">
       <div class="pedidos">
-
-        <div class="pedido">
-          <img src="assets/png/sem-foto-100.png">
+        <div class="pedido" *ngFor="let pedido of pedidos">
+          <img [src]="pedido.carrinhoCompra.produtos(0).byte.imagemBase64 || 'assets/png/sem-foto-100.png'">
           <div class="pedido-info">
             <div class="pedido-info-sub">
-              <span class="nome-cliente">João Augusto</span>
-              <span class="numero-pedido">#000000</span>
+              <span class="nome-cliente">{{ pedido.clienteNome }}</span>
+              <span class="numero-pedido">#{{ pedido.numeroPedido }}</span>
             </div>
             <div class="pedido-info-sub">
-              <span class="data-pedido">10/10/2020</span>
-              <span class="valor-pedido">R$ 100,00</span>
+              <span class="data-pedido">{{ pedido.dataCriacao | date:'dd/MM/yyyy' }}</span>
+              <span class="valor-pedido">{{ pedido.valorTotalPedido | currency:'BRL' }}</span>
             </div>
           </div>
         </div>
-
       </div>
     </div>
   </div>

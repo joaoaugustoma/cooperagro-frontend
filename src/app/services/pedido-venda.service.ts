@@ -1,5 +1,4 @@
 import {Injectable} from '@angular/core';
-import {ProdutoDtoType} from "../types/produto-dto.type";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {jwtDecode} from "jwt-decode";
 
@@ -46,5 +45,16 @@ export class PedidoVendaService {
     });
 
     return this.http.post<any>(this.apiUrl + "/mercado-pago/create-preference", pedidoVenda, {headers})
+  }
+
+  getPedidoVenda() {
+    const authToken = sessionStorage.getItem('auth-token');
+    const email = this.getCurrentUserEmail(authToken as string);
+
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${authToken}`
+    });
+
+    return this.http.get<any>(this.apiUrl + "/agricultor/" + email, {headers})
   }
 }
