@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import {PrimaryInputComponent} from "../../../components/primary-input/primary-input.component";
 import {ReactiveFormsModule} from "@angular/forms";
-import {NgOptimizedImage} from "@angular/common";
+import {NgIf, NgOptimizedImage} from "@angular/common";
 import {StatusPedido} from "../../../enums/status-pedido";
 import {NavbarComponent} from "../../../components/navbar/navbar.component";
 import {Router} from "@angular/router";
@@ -14,7 +14,8 @@ import {PedidoVendaService} from "../../../services/pedido-venda.service";
     PrimaryInputComponent,
     ReactiveFormsModule,
     NgOptimizedImage,
-    NavbarComponent
+    NavbarComponent,
+    NgIf
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'

@@ -9,7 +9,7 @@
   </header>
 
 
-  <div class="ultimos-pedidos-section">
+  <div class="ultimos-pedidos-section" *ngIf="numeroPedido">
     <div class="ultimos-pedidos-text">
       <h4>Últimos Pedidos</h4>
       <a (click)="navigateToPedidos()">Ver todos</a>
