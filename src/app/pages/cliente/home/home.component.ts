@@ -27,7 +27,6 @@ export class HomeComponent {
   constructor(private router: Router,
               private pedidoVendaService: PedidoVendaService) {
     this.pedidoVendaService.getUltimoPedido().subscribe(pedido => {
-      console.log(pedido);
       this.numeroPedido = pedido.id;
       this.statusPedido = pedido.situacaoEntrega  ? pedido.situacaoEntrega : pedido.situacaoPedido;
       this.nomeLoja = pedido.carrinhoCompra.nomeAgricultor;
@@ -40,5 +39,9 @@ export class HomeComponent {
 
   navigateToPedidos() {
     this.router.navigate(['/meus-pedidos']);
+  }
+
+  detalharPedido() {
+    this.router.navigate(['/meus-pedidos/detalhes'], { state: { pedidoId: this.numeroPedido } })
   }
 }

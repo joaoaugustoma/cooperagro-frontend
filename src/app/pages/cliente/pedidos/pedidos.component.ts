@@ -1,13 +1,15 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 import {PedidoVendaService} from "../../../services/pedido-venda.service";
-import {NgForOf} from "@angular/common";
+import {CurrencyPipe, DatePipe, NgForOf} from "@angular/common";
 
 @Component({
   selector: 'app-pedidos',
   standalone: true,
   imports: [
-    NgForOf
+    NgForOf,
+    DatePipe,
+    CurrencyPipe
   ],
   templateUrl: './pedidos.component.html',
   styleUrl: './pedidos.component.scss'
@@ -23,7 +25,6 @@ export class PedidosComponent implements OnInit {
   ngOnInit() {
     this.pedidoVendaService.getPedidosByEmailUsuario().subscribe(
       (response) => {
-        console.log(response)
         this.pedidos = response;
         this.pedidos.forEach(pedido => {
           this.produtosPedido = pedido.carrinhoCompra.produtos;
@@ -35,7 +36,7 @@ export class PedidosComponent implements OnInit {
     this.router.navigate(['/perfil'])
   }
 
-  navigateToDetalhes() {
-    this.router.navigate(['/meus-pedidos/detalhes'])
+  navigateToDetalhes(pedidoId: number) {
+    this.router.navigate(['/meus-pedidos/detalhes'], { state: { pedidoId: pedidoId } });
   }
 }
