@@ -97,4 +97,13 @@ export class PedidoVendaService {
 
     return this.http.get<any>(this.apiUrl + "/get/" + pedidoId, {headers})
   }
+
+  confirmarEntrega(pedidoId: number) {
+    const authToken = sessionStorage.getItem('auth-token');
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${authToken}`
+    });
+
+    return this.http.get<any>(this.apiUrl + "/confirmar-entrega/" + pedidoId, {headers})
+  }
 }

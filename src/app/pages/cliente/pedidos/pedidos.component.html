@@ -8,7 +8,7 @@
     <h5>Histórico</h5>
     <div class="pedidos">
 
-      <div class="pedido" *ngFor="let pedido of pedidos" (click) = "navigateToDetalhes(pedido.id)">
+      <div class="pedido" *ngFor="let pedido of pedidos" (click)="navigateToDetalhes(pedido.id)">
         <div class="pedido-header">
           <span>{{ pedido.dataCriacao | date:'dd/MM/yyyy' }}</span>
         </div>
@@ -18,14 +18,15 @@
             <span>{{ pedido.carrinhoCompra.nomeAgricultor }}</span>
           </div>
           <div class="pedido-info">
-            <span>Pedido em andamento - N° {{pedido.id}}</span>
+            <span>Pedido {{ pedido.situacaoEntrega ? pedido.situacaoEntrega : pedido.situacaoPedido }}
+              - N° {{ pedido.id }}</span>
             <div class="pedido-itens" *ngFor="let produto of produtosPedido">
               <span>{{ produto.titulo }}</span>
             </div>
           </div>
           <div class="pedido-avaliacao">
             <span>Valor</span>
-            <span class="stars">{{pedido.valorTotalPedido | currency:'BRL' }}</span>
+            <span class="stars">{{ pedido.valorTotalPedido | currency:'BRL' }}</span>
           </div>
         </div>
       </div>

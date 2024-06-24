@@ -21,6 +21,7 @@
         <span class="produto-preco">{{ produto.precoUnitario | currency:'BRL':'symbol':'1.2-2' }}</span>
       </div>
     </div>
+    <button class="confirmar-entrega" (click)="confirmarEntrega()">Confirmar Entrega</button>
     <div class="valores">
       <h4>Resumo de valores</h4>
       <div class="valor">
